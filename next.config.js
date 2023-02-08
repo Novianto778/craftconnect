@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+    reactStrictMode: true,
+    images: {
+        domains: [
+            'localhost',
+            'cdn-icons-png.flaticon.com',
+            'firebasestorage.googleapis.com',
+        ],
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
