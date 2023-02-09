@@ -7,6 +7,7 @@ export function withProtected(Component: React.FC) {
     return function ProtectedComponent(props: any) {
         const [user, loading] = useAuthState(auth);
         const router = useRouter();
+
         useEffect(() => {
             if (!user && !loading) {
                 router.replace('/login');
