@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Toaster } from 'react-hot-toast';
 
 export default function App({ Component, pageProps }: AppProps) {
     const [showChild, setShowChild] = useState(false);
@@ -24,17 +25,18 @@ export default function App({ Component, pageProps }: AppProps) {
         return <></>;
     }
     return (
-        <html>
+        <>
             <Head>
                 <link rel="icon" href="/images/logo.ico" />
             </Head>
+            <Toaster />
             <div className="h-screen">
                 <ModalContainer />
                 {!isAuthPage && <Navbar />}
-                <div className="max-h-main h-full">
+                <div className="h-full max-h-main">
                     <Component {...pageProps} />
                 </div>
             </div>
-        </html>
+        </>
     );
 }

@@ -1,5 +1,6 @@
 import AddAvatar from '@/assets/img/addAvatar.png';
 import { auth, firestore, storage } from '@/lib/firebase';
+import Button from '@/shared/components/Button/Button';
 import Input from '@/shared/components/Input/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { doc, setDoc } from 'firebase/firestore';
@@ -9,6 +10,7 @@ import Link from 'next/link';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useUploadFile } from 'react-firebase-hooks/storage';
 import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import ReactSelect from 'react-select';
 import { FormSchema, FormType } from './register.types';
 
@@ -43,11 +45,7 @@ const RegisterForm = (props: Props) => {
     const [uploadFile] = useUploadFile();
 
     if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
+        toast.error(error.message);
     }
     if (loading) {
         return <p>Loading...</p>;
@@ -79,7 +77,7 @@ const RegisterForm = (props: Props) => {
         <>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-5 w-full"
+                className="flex w-full flex-col gap-5"
             >
                 <Input
                     type="text"
@@ -130,7 +128,7 @@ const RegisterForm = (props: Props) => {
                     />
                     <label
                         htmlFor="avatar"
-                        className="flex gap-x-2 items-center cursor-pointer"
+                        className="flex cursor-pointer items-center gap-x-2"
                     >
                         <Image
                             src={AddAvatar}
@@ -143,11 +141,13 @@ const RegisterForm = (props: Props) => {
                         </span>
                     </label>
                 </div>
-
-                <button type="submit">Sign Up</button>
+                <Button type="submit">Sign Up</Button>
             </form>
             <p>
-                Sudah punya akun? <Link href="/login">Login</Link>
+                Sudah punya akun?{' '}
+                <Link href="/login" className="text-blue-600">
+                    Login
+                </Link>
             </p>
         </>
     );

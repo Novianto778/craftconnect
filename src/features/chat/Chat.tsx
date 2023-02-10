@@ -9,8 +9,8 @@ const Chat = (props: Props) => {
     return (
         <>
             <div className="messanger bg-white max-h-main h-full overflow-hidden">
-                <div className="flex h-full">
-                    <div className="basis-2/6 pt-3 bg-white border-slate-200 border-r-2 w-2/6">
+                <div className="flex h-full overflow-hidden">
+                    <div className="basis-2/6 bg-white border-slate-200 border-r-2 w-2/6">
                         <Sidebar />
                     </div>
                     <div className="basis-4/6 relative">

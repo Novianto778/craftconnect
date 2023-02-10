@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Input from './Input';
 
 export default {
-    title: 'form/Input',
+    title: 'shared/Input',
     component: Input,
     argTypes: {
         type: {

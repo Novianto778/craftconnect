@@ -13,10 +13,10 @@ const Sidebar = (props: Props) => {
     const currentChats = query !== '' ? filteredChat : chats;
 
     return (
-        <div className="px-2 fixed top-14 w-inherit">
+        <div className="fixed top-[60px] w-inherit px-2">
             <Search />
 
-            <div className="user-list overflow-y-auto h-screen bg-white flex flex-col gap-y-2 mt-4 px-2 duration-300">
+            <div className="user-list mt-4 flex h-screen flex-col gap-y-2 overflow-y-auto bg-white px-2 duration-300">
                 {currentChats.length > 0 &&
                     !loading &&
                     currentChats
