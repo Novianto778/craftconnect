@@ -28,7 +28,9 @@ const Sidebar = (props: Props) => {
                                     user={user[1]?.userInfo as User}
                                     isSelected={
                                         selectedUser?.uid ===
-                                        user[0].split(currentUser?.uid!)[0]
+                                        user[0]
+                                            .split(currentUser?.uid!)
+                                            .find((item) => item !== '')
                                     }
                                     onSelect={handleSelect}
                                     lastMessage={user[1]?.lastMessage}

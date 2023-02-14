@@ -20,7 +20,7 @@ const Spinner = ({
 
     if (fullPage) {
         return (
-            <div className="fixed top-0 left-0 w-full h-full bg-gray-600 bg-opacity-50 flex items-center justify-center">
+            <div className="fixed top-0 left-0 z-50 flex h-full w-full items-center justify-center bg-gray-600 bg-opacity-50">
                 <div className={cn(basicStyle, `border-${color}`)}></div>
             </div>
         );

@@ -32,7 +32,7 @@ const Navbar = (props: Props) => {
             <div className="w-full">
                 <section className="relative">
                     <nav className="flex h-[60px] w-full justify-between bg-gray-900 text-white">
-                        <div className="flex w-full items-center px-5 py-6 xl:px-12">
+                        <div className="md:p-auto container flex w-full items-center py-6">
                             <Link
                                 href="/"
                                 className="font-heading text-2xl font-bold"

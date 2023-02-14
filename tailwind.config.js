@@ -22,11 +22,19 @@ module.exports = {
                 200: 200,
                 300: 300,
             },
+            minHeight: {
+                main: 'calc(100vh - 60px)',
+            },
             maxHeight: {
                 main: 'calc(100vh - 60px)',
+                card: 'calc(100% - 8rem)',
             },
             width: {
                 inherit: 'inherit',
+            },
+            container: {
+                center: true,
+                padding: '2rem',
             },
         },
     },

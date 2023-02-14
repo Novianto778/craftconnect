@@ -1,10 +1,7 @@
 import { firestore } from '@/lib/firebase';
 import useAuth from '@/shared/hooks/useAuth';
 import { useChatStore } from '@/store/chatStore';
-import {
-    doc,
-    onSnapshot
-} from 'firebase/firestore';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import ChatInput from '../ChatInput/ChatInput';
 import ChatItem from '../ChatItem/ChatItem';
@@ -40,7 +37,7 @@ const ChatArea = (props: Props) => {
         <div className="relative pb-20">
             {selectedUser ? (
                 <>
-                    <div className="pt-20 px-4 gap-y-4 flex flex-col">
+                    <div className="flex h-full flex-col gap-y-4 px-4 pt-20">
                         {messages.map((message: any) => (
                             <ChatItem
                                 key={message.id}
@@ -60,7 +57,7 @@ const ChatArea = (props: Props) => {
                     <ChatInput onSend={handleSend} />
                 </>
             ) : (
-                <div className="flex items-center justify-center h-full max-h-main">
+                <div className="min-h-main flex h-full items-center justify-center">
                     <h1 className="text-2xl font-semibold">
                         Pilih user untuk memulai percakapan
                     </h1>

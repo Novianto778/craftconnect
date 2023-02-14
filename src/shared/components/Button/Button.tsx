@@ -3,7 +3,7 @@ import React from 'react';
 import Spinner from '../Spinner/Spinner';
 
 type Props = {
-    variant?: 'primary' | 'secondary';
+    variant?: 'primary' | 'secondary' | 'custom';
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     children: React.ReactNode;
@@ -35,14 +35,18 @@ const Button = ({
             ' bg-gray-500 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded';
     }
 
+    if (variant === 'custom') {
+        basicStyle += ' font-medium py-2 px-4 rounded';
+    }
+
     if (fullWidth) basicStyle += ' w-full';
 
     if (size === 'sm') {
-        basicStyle += ' text-sm';
+        basicStyle += ' text-sm px-2.5 py-1.5';
     }
 
     if (size === 'lg') {
-        basicStyle += ' text-lg';
+        basicStyle += ' text-lg px-4 py-2';
     }
 
     return (

@@ -2,7 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+}
+
 @layer components {
+    .container {
+        @apply mx-auto max-w-[1240px] px-4;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        pointer-events: auto;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        -webkit-appearance: none;
+        @apply bg-green-500;
+    }
     .nav-item {
         @apply block w-full whitespace-nowrap px-4 py-2 hover:bg-gray-700 md:px-0 md:py-0 md:hover:bg-transparent;
     }

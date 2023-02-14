@@ -1,27 +1,38 @@
+import { auth, firestore } from '@/lib/firebase';
+import { useAuthStore } from '@/store/authStore';
 import { doc, getDoc } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { User } from 'typings';
-import { auth, firestore } from '@/lib/firebase';
 
 const useAuth = () => {
-    const [user, loading] = useAuthState(auth);
-    const [currentUser, setCurrentUser] = useState<User | null>(null);
-    const getCurrentUser = async () => {
-        const res = await getDoc(doc(firestore, 'users', user?.uid!));
-        if (res.exists()) {
-            setCurrentUser(res.data() as User);
-        }
-    };
-    useEffect(
-        () => {
-            if (user) {
-                getCurrentUser();
+    const [user, isLoading] = useAuthState(auth);
+    const currentUser = useAuthStore((state) => state.currentUser);
+    const setCurrentUser = useAuthStore((state) => state.setCurrentUser);
+    const loading = useAuthStore((state) => state.loading);
+    const setLoading = useAuthStore((state) => state.setLoading);
+
+    // console.log('currentuser in useAuth', currentUser);
+
+    useEffect(() => {
+        const getCurrentUser = async () => {
+            const res = await getDoc(doc(firestore, 'users', user?.uid!));
+            if (res.exists()) {
+                setCurrentUser(res.data() as User);
+            } else {
+                setCurrentUser(null);
             }
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [user]
-    );
+            setLoading(false);
+        };
+
+        if (user) {
+            getCurrentUser();
+        }
+
+        if (!user && !isLoading) {
+            setLoading(false);
+        }
+    }, [user?.uid]);
 
     return { currentUser, loading };
 };

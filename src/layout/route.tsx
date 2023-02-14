@@ -1,22 +1,35 @@
-import { auth } from '@/lib/firebase';
+import Spinner from '@/shared/components/Spinner/Spinner';
+import useAuth from '@/shared/hooks/useAuth';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
-export function withProtected(Component: React.FC) {
+export function withProtected(
+    Component: React.FC,
+    allowedRoles: string[] = []
+) {
     return function ProtectedComponent(props: any) {
-        const [user, loading] = useAuthState(auth);
+        const { currentUser, loading } = useAuth();
         const router = useRouter();
 
-        useEffect(() => {
-            if (!user && !loading) {
-                router.replace('/login');
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [user, loading]);
+        // console.log('isAuth protected', currentUser, loading);
 
-        if (!user || loading) {
-            return <h1>Loading...</h1>;
+        const isAllowed =
+            allowedRoles.length > 0
+                ? allowedRoles.includes(currentUser?.role!)
+                : true;
+
+        // console.log('isAuth', currentUser, loading);
+        // useEffect(() => {
+        if (!isAllowed && !loading) {
+            router.replace('/');
+        }
+        if (!currentUser && !loading) {
+            router.replace('/login');
+        }
+        // }, [currentUser]);
+
+        if (!currentUser || loading) {
+            return <Spinner fullPage size="lg" />;
         }
 
         return <Component {...props} />;
@@ -25,17 +38,16 @@ export function withProtected(Component: React.FC) {
 
 export function withPublic(Component: React.FC) {
     return function PublicComponent(props: any) {
-        const [user, loading] = useAuthState(auth);
+        const { currentUser, loading } = useAuth();
         const router = useRouter();
-        useEffect(() => {
-            if (user && !loading) {
-                router.replace('/');
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [user]);
 
-        if (user || loading) {
-            return <h1>Loading...</h1>;
+        // console.log('isAuth public', currentUser, loading);
+
+        if (currentUser && !loading) {
+            router.replace('/');
+        }
+        if (currentUser || loading) {
+            return <Spinner fullPage size="lg" />;
         }
 
         return <Component {...props} />;
