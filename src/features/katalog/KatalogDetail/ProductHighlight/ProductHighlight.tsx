@@ -20,8 +20,8 @@ const ProductHighlight = ({ highlight, image }: Props) => {
             <h3 className="text-2xl font-bold tracking-widest text-blue-600">
                 Highlight Produk
             </h3>
-            <div className="mt-8 grid grid-cols-12 items-center gap-x-12">
-                <div className="relative col-span-5 w-full overflow-hidden rounded">
+            <div className="mt-8 grid grid-cols-6 items-center gap-x-12">
+                <div className="relative col-span-6 w-full md:max-w-[90%] overflow-hidden rounded md:col-span-3">
                     <img
                         src={image}
                         alt="product"
@@ -29,7 +29,7 @@ const ProductHighlight = ({ highlight, image }: Props) => {
                     />
                 </div>
                 <div
-                    className={`col-span-6 flex flex-col gap-y-20 ${
+                    className={`col-span-6 flex flex-col gap-y-20 md:col-span-3 ${
                         gapClasses[highlight.length]
                     }`}
                 >

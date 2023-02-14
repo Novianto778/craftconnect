@@ -48,8 +48,8 @@ const KatalogDetail = ({ product }: Props) => {
         <div className="container">
             <div className="mt-4 h-full min-h-main w-full">
                 <h1 className="text-2xl font-bold">Detail Produk</h1>
-                <div className="mt-4 grid w-full max-w-[100vw] grid-cols-6 items-start justify-between gap-12">
-                    <div className="col-span-6 md:col-span-2">
+                <div className="mt-4 grid w-full max-w-[100vw] grid-cols-6 items-start justify-between gap-12 md:gap-24">
+                    <div className="col-span-6 md:col-span-3">
                         <div className="flex flex-col gap-2">
                             <div className="relative h-72 w-full overflow-hidden rounded border">
                                 <Image
@@ -60,26 +60,26 @@ const KatalogDetail = ({ product }: Props) => {
                                     sizes="(max-width: 640px) 100vw, 640px"
                                 />
                             </div>
-                            <div className="flex gap-x-2">
-                                <div className="relative flex h-20 w-20 flex-col">
-                                    <Image
-                                        src={product.images[1]}
-                                        fill
-                                        alt="product"
-                                        className="object-cover"
-                                        sizes="(max-width: 640px) 100vw, 640px"
-                                    />
+                            {product.images.length > 1 && (
+                                <div className="flex gap-x-2">
+                                    {[
+                                        ...new Array(product.images.length - 1),
+                                    ].map((_, index) => (
+                                        <div
+                                            className="relative flex h-20 w-20 flex-col rounded overflow-hidden"
+                                            key={index + 1}
+                                        >
+                                            <Image
+                                                src={product.images[index + 1]}
+                                                fill
+                                                alt="product"
+                                                className="object-cover"
+                                                sizes="(max-width: 640px) 100vw, 640px"
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="relative flex h-20 w-20 flex-col">
-                                    <Image
-                                        src={product.images[2]}
-                                        fill
-                                        alt="product"
-                                        className="object-cover"
-                                        sizes="(max-width: 640px) 100vw, 640px"
-                                    />
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                     <div className="col-span-6 md:col-start-4 md:col-end-7">
@@ -137,10 +137,12 @@ const KatalogDetail = ({ product }: Props) => {
                     </div>
                 </div>
             </div>
-            {/* <ProductHighlight
-                highlight={product.highlight}
-                image={product.highlightImage}
-            /> */}
+            <div className="mt-8">
+                <ProductHighlight
+                    highlight={product.highlight}
+                    image={product.highlightImage}
+                />
+            </div>
         </div>
     );
 };
