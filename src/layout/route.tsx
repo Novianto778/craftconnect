@@ -1,7 +1,6 @@
-import Spinner from '@/shared/components/Spinner/Spinner';
+import CubeLoading from '@/shared/components/CubeLoading/CubeLoading';
 import useAuth from '@/shared/hooks/useAuth';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 export function withProtected(
     Component: React.FC,
@@ -29,7 +28,7 @@ export function withProtected(
         // }, [currentUser]);
 
         if (!currentUser || loading) {
-            return <Spinner fullPage size="lg" />;
+            return <CubeLoading />;
         }
 
         return <Component {...props} />;
@@ -47,7 +46,7 @@ export function withPublic(Component: React.FC) {
             router.replace('/');
         }
         if (currentUser || loading) {
-            return <Spinner fullPage size="lg" />;
+            return <CubeLoading />;
         }
 
         return <Component {...props} />;

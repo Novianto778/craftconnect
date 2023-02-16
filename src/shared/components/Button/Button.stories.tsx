@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { BiArrowToRight, BiFace, BiUpArrow } from 'react-icons/bi';
 import Button from './Button';
 
 export default {
@@ -20,6 +21,18 @@ export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
 Secondary.args = {
     variant: 'secondary',
+};
+
+export const Icon = Template.bind({});
+Icon.args = {
+    iconLeft: <BiUpArrow />,
+    iconRight: <BiArrowToRight />,
+};
+
+export const Outlined = Template.bind({});
+Outlined.args = {
+    variant: 'outlined',
+    className: 'text-black border-2 border-black',
 };
 
 export const FullWidth = Template.bind({});

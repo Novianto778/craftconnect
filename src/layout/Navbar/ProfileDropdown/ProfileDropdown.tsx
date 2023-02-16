@@ -20,7 +20,7 @@ const ProfileDropdown = ({ currentUser }: Props) => {
     };
 
     return (
-        <div className="absolute right-0 z-50 flex min-w-[200px] flex-col gap-y-4 rounded bg-gray-800 px-4 py-2">
+        <div className="absolute right-0 z-200 flex min-w-[200px] flex-col gap-y-4 rounded bg-gray-800 px-4 py-2">
             <div className="flex items-center gap-x-2">
                 {currentUser?.avatar && (
                     <Image

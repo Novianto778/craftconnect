@@ -1,5 +1,6 @@
 import ModalContainer from '@/layout/ModalContainer/ModalContainer';
 import Navbar from '@/layout/Navbar/Navbar';
+import CubeLoading from '@/shared/components/CubeLoading/CubeLoading';
 import Spinner from '@/shared/components/Spinner/Spinner';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
@@ -54,11 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <ModalContainer />
                 {!isAuthPage && <Navbar />}
                 <div className="h-full max-h-main">
-                    {loading ? (
-                        <Spinner fullPage />
-                    ) : (
-                        <Component {...pageProps} />
-                    )}
+                    {loading ? <CubeLoading /> : <Component {...pageProps} />}
                 </div>
             </div>
         </>

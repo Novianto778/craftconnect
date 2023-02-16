@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { Product } from 'typings';
@@ -20,20 +21,21 @@ const ProductHighlight = ({ highlight, image }: Props) => {
             <h3 className="text-2xl font-bold tracking-widest text-blue-600">
                 Highlight Produk
             </h3>
-            <div className="mt-8 grid grid-cols-6 items-center gap-x-12">
-                <div className="relative col-span-6 w-full md:max-w-[90%] overflow-hidden rounded md:col-span-3">
-                    <img
-                        src={image}
+            <div className="mt-8 grid grid-cols-12 items-center md:gap-x-12">
+                <div className="relative col-span-12 h-[500px] w-full overflow-hidden rounded md:col-span-6 md:max-w-[100%]">
+                    <Image
+                        src={image!}
+                        fill
                         alt="product"
                         className="h-full w-full object-contain"
                     />
                 </div>
                 <div
-                    className={`col-span-6 flex flex-col gap-y-20 md:col-span-3 ${
-                        gapClasses[highlight.length]
+                    className={`col-span-12 flex flex-col gap-y-20 md:col-span-6 ${
+                        gapClasses[highlight?.length!]
                     }`}
                 >
-                    {highlight.map((item, index) => (
+                    {highlight?.map((item, index) => (
                         <div className="relative flex items-center" key={index}>
                             <div className="absolute h-2 w-2 rounded-full bg-green-400"></div>
                             <div className="absolute h-1 w-12 rounded-full bg-green-400 md:w-48"></div>

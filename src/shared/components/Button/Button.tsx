@@ -3,7 +3,7 @@ import React from 'react';
 import Spinner from '../Spinner/Spinner';
 
 type Props = {
-    variant?: 'primary' | 'secondary' | 'custom';
+    variant?: 'primary' | 'secondary' | 'custom' | 'outlined';
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     children: React.ReactNode;
@@ -11,6 +11,7 @@ type Props = {
     size?: 'sm' | 'base' | 'lg';
     fullWidth?: boolean;
     isLoading?: boolean;
+    isActive?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
@@ -22,6 +23,7 @@ const Button = ({
     size = 'base',
     fullWidth = false,
     isLoading = false,
+    isActive = false,
     ...rest
 }: Props) => {
     let basicStyle =
@@ -33,6 +35,12 @@ const Button = ({
     if (variant === 'secondary') {
         basicStyle +=
             ' bg-gray-500 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded';
+    }
+
+    if (variant === 'outlined') {
+        basicStyle +=
+            ' border border-gray-200 hover:bg-white text-white font-medium py-2 px-4 rounded-full hover:text-gray-700 duration-300';
+        if (isActive) basicStyle += ' bg-white text-gray-700 shadow';
     }
 
     if (variant === 'custom') {

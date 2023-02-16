@@ -32,7 +32,7 @@ const useAuth = () => {
         if (!user && !isLoading) {
             setLoading(false);
         }
-    }, [user?.uid]);
+    }, [user?.uid, isLoading]);
 
     return { currentUser, loading };
 };
