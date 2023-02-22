@@ -9,7 +9,6 @@ type Props = {
 const KatalogContent = ({ products }: Props) => {
     const filter = useKatalogStore((state) => state.filter);
     const priceFilter = useKatalogStore((state) => state.priceFilter);
-    console.log('filter', priceFilter);
 
     const filteredProducts = (
         filter && filter.length > 0
@@ -17,8 +16,7 @@ const KatalogContent = ({ products }: Props) => {
                   filter.includes(product.category.toLowerCase())
               )
             : products
-    ).filter((product) => {
-        console.log(product);
+    )?.filter((product) => {
         return (
             product.price >= priceFilter.min && product.price <= priceFilter.max
         );
@@ -27,7 +25,7 @@ const KatalogContent = ({ products }: Props) => {
     return (
         <>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {filteredProducts.map((product) => (
+                {filteredProducts?.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>

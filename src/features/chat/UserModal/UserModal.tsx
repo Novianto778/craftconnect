@@ -13,7 +13,7 @@ const UserModal = (props: Props) => {
 
     return (
         <div
-            className="modal fade fixed top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4  w-screen h-screen outline-none overflow-x-hidden overflow-y-auto z-300"
+            className="modal fade fixed top-1/2 left-1/2 z-200 h-screen  w-screen -translate-x-1/4 -translate-y-1/4 overflow-y-auto overflow-x-hidden outline-none"
             id="staticBackdrop"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
@@ -21,9 +21,9 @@ const UserModal = (props: Props) => {
             aria-labelledby="modal"
             aria-hidden="true"
         >
-            <div className="modal-dialog relative w-auto pointer-events-none">
-                <div className="modal-content border-none shadow-lg relative flex flex-col w-full max-w-[680px] pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                    <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+            <div className="modal-dialog pointer-events-none relative w-auto">
+                <div className="modal-content pointer-events-auto relative flex w-full max-w-[680px] flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none">
+                    <div className="modal-header flex flex-shrink-0 items-center justify-between rounded-t-md border-b border-gray-200 p-4">
                         <h5
                             className="text-xl font-medium leading-normal text-gray-800"
                             id="exampleModalLabel"
@@ -32,7 +32,7 @@ const UserModal = (props: Props) => {
                         </h5>
                         <button
                             type="button"
-                            className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                            className="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                             data-bs-dismiss="modal"
                             aria-label="Close"
                         ></button>
@@ -46,16 +46,15 @@ const UserModal = (props: Props) => {
                                 />
                             ))}
                     </div>
-                    <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                    <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t border-gray-200 p-4">
                         <button
                             onClick={closeModal}
                             type="button"
-                            className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                            className="inline-block rounded bg-purple-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg"
                             data-bs-dismiss="modal"
                         >
                             Tutup
                         </button>
-
                     </div>
                 </div>
             </div>

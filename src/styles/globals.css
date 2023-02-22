@@ -1,3 +1,5 @@
+/* setting lang */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -236,5 +238,88 @@
     .cube div:nth-of-type(6) {
         -webkit-transform: translateZ(20px);
         transform: translateZ(20px);
+    }
+
+    /* category */
+    .category-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        /* grid-template-rows: repeat(2, 1fr); */
+        width: 100%;
+        height: 100%;
+        gap: 20px;
+    }
+
+    .category-container > div {
+        @apply relative col-span-12 min-h-[200px] cursor-pointer overflow-hidden rounded;
+    }
+
+    /* hover effect scale the img */
+    .category-container > div:hover img {
+        @apply scale-110 transform transition-all duration-300;
+    }
+
+    .category-container .kain {
+        @apply bg-[#f9d9da];
+    }
+
+    .category-container .keramik {
+        @apply bg-[#dbf4ed];
+    }
+
+    .category-container .kaca {
+        @apply bg-[#e1f0de];
+    }
+
+    .category-container .besi {
+        @apply bg-[#d8dbec];
+    }
+
+    .category-container .kayu {
+        @apply bg-[#ffedcc];
+    }
+
+    /* media query */
+    @media only screen and (min-width: 600px) {
+        .category-container .kain {
+            grid-area: 1 / 1 / 2 / 5;
+        }
+
+        .category-container .keramik {
+            grid-area: 1 / 5 / 2 / 9;
+        }
+
+        .category-container .kaca {
+            grid-area: 2 / 1 / 3 / 5;
+        }
+
+        .category-container .besi {
+            grid-area: 2 / 5 / 3 / 9;
+        }
+
+        .category-container .kayu {
+            grid-area: 1 / 9 / 3 / 13;
+        }
+    }
+    @media only screen and (min-width: 920px) {
+        .category-container .kain {
+            grid-area: 1 / 1 / 2 / 6;
+        }
+
+        .category-container .keramik {
+            grid-area: 1 / 6 / 2 / 9;
+        }
+
+        .category-container .kaca {
+            grid-area: 2 / 1 / 3 / 4;
+        }
+
+        .category-container .besi {
+            grid-area: 2 / 4 / 3 / 9;
+        }
+
+        .category-container .kayu {
+            grid-area: 1 / 9 / 3 / 13;
+        }
     }
 }

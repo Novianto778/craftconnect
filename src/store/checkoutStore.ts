@@ -1,6 +1,6 @@
 import { CheckoutProduct, Product } from 'typings';
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 export interface CheckoutStore {
     checkoutProduct: CheckoutProduct[];
@@ -46,7 +46,7 @@ export const useCheckoutStore = create(
         }),
         {
             name: 'checkout-storage',
-            getStorage: () => localStorage,
+            storage: createJSONStorage(() => localStorage),
         }
     )
 );

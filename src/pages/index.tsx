@@ -1,3 +1,4 @@
+import LandingPage from '@/features/landing-page/LandingPage';
 import { withProtected } from '@/layout/route';
 import Head from 'next/head';
 
@@ -13,7 +14,7 @@ function Home() {
                 />
             </Head>
             <main>
-                <h1>Home</h1>
+                <LandingPage />
             </main>
         </>
     );

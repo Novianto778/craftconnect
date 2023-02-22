@@ -3,7 +3,14 @@ import useAuth from '@/shared/hooks/useAuth';
 import { useChatStore } from '@/store/chatStore';
 import { useModalStore } from '@/store/modalStore';
 import {
-    arrayUnion, doc, getDoc, onSnapshot, serverTimestamp, setDoc, Timestamp, updateDoc
+    arrayUnion,
+    doc,
+    getDoc,
+    onSnapshot,
+    serverTimestamp,
+    setDoc,
+    Timestamp,
+    updateDoc,
 } from 'firebase/firestore';
 import { useEffect } from 'react';
 import { User, UserChat } from 'typings';
@@ -117,7 +124,10 @@ const useChats = () => {
     };
 
     useEffect(() => {
-        if (!currentUser?.uid) return;
+        if (!currentUser?.uid) {
+            setLoading(false);
+            return;
+        }
         setLoading(true);
         const unsub = onSnapshot(
             doc(firestore, 'userChats', currentUser?.uid),

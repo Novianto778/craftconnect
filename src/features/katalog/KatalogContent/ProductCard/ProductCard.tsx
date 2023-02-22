@@ -1,7 +1,6 @@
 import CheckoutActions from '@/features/checkout/CheckoutActions/CheckoutActions';
 import { formatCurrency } from '@/utils/formatCurrency';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Product } from 'typings';
 

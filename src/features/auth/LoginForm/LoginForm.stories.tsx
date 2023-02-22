@@ -20,4 +20,4 @@ const Template: ComponentStory<typeof LoginForm> = (args) => (
 
 export const Login = Template.bind({});
 Login.args = {};
-Login.storyName = 'Register Page';
+Login.storyName = 'Login Page';

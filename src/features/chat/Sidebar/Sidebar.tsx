@@ -38,9 +38,7 @@ const Sidebar = (props: Props) => {
                             );
                         })}
                 {loading && <p>Loading...</p>}
-                {!loading && !Object.entries(chats).length && (
-                    <p>User not found</p>
-                )}
+                {!loading && !currentChats.length && <p>User not found</p>}
             </div>
         </div>
     );

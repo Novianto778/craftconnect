@@ -36,7 +36,7 @@ const NavbarMenu = ({ isOpen }: Props) => {
         <ul
             className={`${
                 isOpen ? 'flex' : 'hidden'
-            } font-heading absolute top-14 right-8 z-30 mx-auto w-60 flex-col items-start gap-y-4 bg-gray-900 px-4 py-4 font-semibold md:static md:flex md:w-auto md:flex-row md:gap-y-0 md:space-x-12 md:py-0`}
+            } font-heading absolute top-14 right-8 z-300 mx-auto w-60 flex-col items-start gap-y-4 bg-gray-900 px-4 py-4 font-semibold md:static md:flex md:w-auto md:flex-row md:gap-y-0 md:space-x-12 md:py-0`}
         >
             {LINKS.map((link) => (
                 <LinkItem

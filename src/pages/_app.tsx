@@ -1,7 +1,8 @@
+import '@/features/landing-page/Gallery/gallery.css';
+import '@/features/landing-page/ProductStory/ProductStory.css';
 import ModalContainer from '@/layout/ModalContainer/ModalContainer';
 import Navbar from '@/layout/Navbar/Navbar';
 import CubeLoading from '@/shared/components/CubeLoading/CubeLoading';
-import Spinner from '@/shared/components/Spinner/Spinner';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
