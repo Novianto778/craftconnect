@@ -1,5 +1,6 @@
 import '@/features/landing-page/Gallery/gallery.css';
 import '@/features/landing-page/ProductStory/ProductStory.css';
+import '@/features/landing-page/landingpage.css';
 import ModalContainer from '@/layout/ModalContainer/ModalContainer';
 import Navbar from '@/layout/Navbar/Navbar';
 import CubeLoading from '@/shared/components/CubeLoading/CubeLoading';
