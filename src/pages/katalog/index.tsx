@@ -15,7 +15,7 @@ const KatalogPage = ({
     );
 };
 
-export default withProtected(KatalogPage, []);
+export default KatalogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
     const productRef = await getDocs(collection(firestore, 'products'));

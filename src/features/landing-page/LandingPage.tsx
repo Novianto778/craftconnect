@@ -5,6 +5,10 @@ import ProductStory from './ProductStory/ProductStory';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { gsap } from 'gsap';
 import cn from 'classnames';
+import Keunggulan from './Keunggulan/Keunggulan';
+import Pendapat from './Pendapat/Pendapat';
+import Hero from './Hero/Hero';
+import AboutUs from './AboutUs/AboutUs';
 
 type Props = {};
 
@@ -98,7 +102,7 @@ const LandingPage = (props: Props) => {
             {
                 delay: 2.5,
                 opacity: 1,
-                y: -200,
+                y: -100,
                 duration: 2,
                 ease: 'Expo.easeInOut',
             }
@@ -108,8 +112,8 @@ const LandingPage = (props: Props) => {
         <div>
             {/* <div className="h-screen w-full bg-red-400"></div> */}
             {/* <ProductStory /> */}
-            <div
-                className="hero relative h-screen max-h-main bg-blue-200"
+            {/* <div
+                className="hero relative h-screen max-h-main overflow-hidden bg-blue-200"
                 ref={heroRef}
             >
                 <div className="overlay first"></div>
@@ -130,11 +134,15 @@ const LandingPage = (props: Props) => {
 
                 <div className="product-desc">
                     <p>The pure comfort is here!</p>
-                    <button className="hero-button">reserve now</button>
+                    <button className="hero-button">Pesan Sekarang</button>
                 </div>
-            </div>
+            </div> */}
+            <Hero />
+            <AboutUs />
+            <Keunggulan />
             <Gallery />
             <Category />
+            <Pendapat />
             <section className="home-scroll_section" ref={homeScroll}>
                 <div
                     id="w-node-_7e33c050-16d7-6450-728b-4393fedf22fa-86dde1de"

@@ -1,5 +1,6 @@
 import { auth } from '@/lib/firebase';
 import Button from '@/shared/components/Button/Button';
+import useAuth from '@/shared/hooks/useAuth';
 import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -32,6 +33,7 @@ const LINKS = [
 const NavbarMenu = ({ isOpen }: Props) => {
     const router = useRouter();
     const [signOut, loading] = useSignOut(auth);
+    const { currentUser } = useAuth();
     return (
         <ul
             className={`${
@@ -46,14 +48,22 @@ const NavbarMenu = ({ isOpen }: Props) => {
                     isActive={router.pathname === link.link}
                 />
             ))}
-            <Button
-                size="sm"
-                className="nav-item md:hidden"
-                isLoading={loading}
-                onClick={() => signOut()}
-            >
-                Sign Out
-            </Button>
+            {currentUser ? (
+                <Button
+                    size="sm"
+                    className="nav-item bg-red-500 md:hidden"
+                    isLoading={loading}
+                    onClick={() => signOut()}
+                >
+                    Sign Out
+                </Button>
+            ) : (
+                <Link href="/login" className="w-full">
+                    <Button size="sm" fullWidth className="nav-item md:hidden">
+                        Sign In
+                    </Button>
+                </Link>
+            )}
         </ul>
     );
 };

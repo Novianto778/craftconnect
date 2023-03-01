@@ -6,6 +6,7 @@ const nextConfig = {
             'localhost',
             'cdn-icons-png.flaticon.com',
             'firebasestorage.googleapis.com',
+            'images.unsplash.com',
         ],
     },
 };

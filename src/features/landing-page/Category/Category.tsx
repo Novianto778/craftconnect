@@ -11,7 +11,7 @@ type Props = {};
 const Category = (props: Props) => {
     return (
         <div className="container pb-20">
-            <h2 className="py-12 text-center text-2xl font-bold">Kategory</h2>
+            <h2 className="py-12 text-center text-4xl font-bold">Kategory</h2>
             <div className="category-container">
                 <div className="kain h-full w-full">
                     <Image

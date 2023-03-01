@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import React, { useEffect } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
 
 const Gallery = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -98,22 +99,6 @@ const Gallery = () => {
 
     return (
         <div id="smooth-content" className="main-wrapper" ref={comp}>
-            {/* <div className="hero">
-                <div className="is-hero container">
-                    <div className="hero_content">
-                        <p className="hero_sub">PHOTOGRAPHER&#x27;S</p>
-                        <h1>CELEBRATION</h1>
-                        <div className="hero_p-wrap">
-                            <p>
-                                TODAY WE WANT TO HONOR ALL THE PHOTOGRAPHERS WHO
-                                GENEROUSLY SHARE THEIR PICTURES WITH THE
-                                WORLD.THIS WEBSITE IS A CELEBRATION OF THEIR
-                                TALENT!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <div className="section-height">
                 <div className="sticky-element">
                     <div className="track">
@@ -141,31 +126,37 @@ const Gallery = () => {
                                         </p>
                                         <div className="thanks-panel_img is-1">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c0362418cf2_thanks-1.c050f96d.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
                                         <div className="thanks-panel_img is-2">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c66f5418cf4_thanks-2.5b322fb7.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1545056769-1e26065c82b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
                                         <div className="thanks-panel_img is-3">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c48ab418cf5_thanks-3.48846b1e.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1612736231323-e7bcba8fcbaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
@@ -176,31 +167,37 @@ const Gallery = () => {
                                         </p>
                                         <div className="thanks-panel_img is-1">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c315e418cf3_thanks-1bis.a9fa8549.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
                                         <div className="thanks-panel_img is-2">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c06ee418cf6_thanks-2bis.0afa6688.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1608085576157-7c170e80d04e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
                                         <div className="thanks-panel_img is-3">
                                             <div className="thanks-panel_img-height">
-                                                <img
-                                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c3484418cf7_thanks-3bis.68c75dbb.webp"
+                                                <Image
+                                                    src="https://images.unsplash.com/photo-1622076358551-aaf9a65a0878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjg4fHxjcmFmdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
                                                     loading="eager"
                                                     alt=""
                                                     className="thanks-panel_photo"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
@@ -209,63 +206,56 @@ const Gallery = () => {
                             </div>
                             <div className="stagger-panel">
                                 <div className="stagger-panel_img-wrap">
-                                    <img
-                                        src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c464e418d00_groupe-centre2.24043a60.webp"
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1611021061285-16c871740efa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                                         loading="eager"
-                                        srcSet="
-                                  https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c464e418d00_groupe-centre2.24043a60-p-500.webp  500w,
-                                  https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c464e418d00_groupe-centre2.24043a60-p-800.webp  800w,
-                                  https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c464e418d00_groupe-centre2.24043a60.webp       1000w
-                              "
-                                        sizes="(max-width: 479px) 29vw, (max-width: 991px) 25vw, 14vw"
                                         alt=""
                                         className="stagger-panel_img is-1"
+                                        width={500}
+                                        height={500}
                                     />
-                                    <img
-                                        src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860cba0e418cff_groupe-left3-v2.b32f9c0a.webp"
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600"
                                         loading="eager"
                                         alt=""
                                         className="stagger-panel_img is-2"
+                                        width={500}
+                                        height={500}
                                     />
-                                    <img
-                                        src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c4c67418d01_groupe-right2.8c20aca0.webp"
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1609980775647-1fb1ef376268?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
                                         loading="eager"
-                                        srcSet="
-                                  https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c4c67418d01_groupe-right2.8c20aca0-p-500.webp 500w,
-                                  https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c4c67418d01_groupe-right2.8c20aca0.webp       750w
-                              "
-                                        sizes="(max-width: 479px) 42vw, (max-width: 991px) 36vw, 20vw"
                                         alt=""
                                         className="stagger-panel_img is-3"
+                                        width={500}
+                                        height={500}
                                     />
-                                    <img
-                                        src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860cb11b418cfd_groupe-left2-v2.00b0dbc2.webp"
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1612465289702-7c84b5258fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=373&q=80"
                                         loading="eager"
                                         alt=""
                                         className="stagger-panel_img is-4"
+                                        width={500}
+                                        height={500}
                                     />
-                                    <img
-                                        src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860cda16418cfe_groupe-left1-v2.35b78d82.webp"
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1582131503261-fca1d1c0589f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29vZCUyMGFydHxlbnwwfDF8MHx8&auto=format&fit=crop&w=600&q=60"
                                         loading="eager"
                                         alt=""
                                         className="stagger-panel_img is-5"
+                                        width={500}
+                                        height={500}
                                     />
                                 </div>
                             </div>
                             <div className="wide-panel">
-                                <img
-                                    src="https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4.webp"
+                                <Image
+                                    src="https://images.unsplash.com/photo-1444069788560-6ae1deb4c0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870"
                                     loading="eager"
-                                    srcSet="
-                              https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4-p-500.webp   500w,
-                              https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4-p-800.webp   800w,
-                              https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4-p-1080.webp 1080w,
-                              https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4-p-1600.webp 1600w,
-                              https://uploads-ssl.webflow.com/63f03bc7e2860c3ba3418ce4/63f03bc8e2860c8a1f418d03_sand3.4054f4f4.webp        1920w
-                          "
-                                    sizes="100vw"
                                     alt=""
                                     className="wide-panel_img"
+                                    width={1400}
+                                    height={1400}
                                 />
                             </div>
                         </div>

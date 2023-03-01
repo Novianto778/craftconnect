@@ -21,12 +21,12 @@ const KatalogDetail = ({ product }: Props) => {
 
     return (
         <div className="container">
-            <div className="mt-4 h-full min-h-main w-full">
+            <div className="mt-4 h-full w-full">
                 <h1 className="text-2xl font-bold">Detail Produk</h1>
                 <div className="mt-4 grid w-full max-w-[100vw] grid-cols-12 items-start justify-between gap-x-0 gap-y-8 md:gap-24 md:gap-x-12">
                     <div className="col-span-12 md:col-span-5">
                         <div className="flex flex-col gap-2">
-                            <div className="relative h-72 w-full overflow-hidden rounded border">
+                            <div className="relative h-72 w-full overflow-hidden rounded-md border">
                                 <Image
                                     src={product.images[0]}
                                     fill
@@ -100,7 +100,7 @@ const KatalogDetail = ({ product }: Props) => {
                 </div>
             </div>
             {product?.highlight && (
-                <div className="mt-8">
+                <div className="mt-20">
                     <ProductHighlight
                         highlight={product.highlight}
                         image={product.highlightImage}

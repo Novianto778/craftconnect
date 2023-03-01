@@ -1,5 +1,5 @@
 import LandingPage from '@/features/landing-page/LandingPage';
-import { withProtected } from '@/layout/route';
+import { withPublic } from '@/layout/route';
 import Head from 'next/head';
 
 function Home() {
@@ -20,4 +20,4 @@ function Home() {
     );
 }
 
-export default withProtected(Home);
+export default Home;

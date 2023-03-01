@@ -15,7 +15,7 @@ const KatalogDetailPage = ({ product }: Props) => {
     );
 };
 
-export default withProtected(KatalogDetailPage);
+export default KatalogDetailPage;
 
 // getStaticProps with params
 

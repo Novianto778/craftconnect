@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import cn from 'classnames';
 import RangeSlider from '@/shared/components/RangeSlider/RangeSlider';
-import { useForm } from 'react-hook-form';
 import { useKatalogStore } from '@/store/katalogStore';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 type Props = {};
 

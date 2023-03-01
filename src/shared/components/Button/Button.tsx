@@ -1,9 +1,9 @@
-import cn from 'classnames';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 import Spinner from '../Spinner/Spinner';
 
 type Props = {
-    variant?: 'primary' | 'secondary' | 'custom' | 'outlined';
+    variant?: 'primary' | 'secondary' | 'outlined';
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     children: React.ReactNode;
@@ -43,10 +43,6 @@ const Button = ({
         if (isActive) basicStyle += ' bg-white text-gray-700 shadow';
     }
 
-    if (variant === 'custom') {
-        basicStyle += ' font-medium py-2 px-4 rounded';
-    }
-
     if (fullWidth) basicStyle += ' w-full';
 
     if (size === 'sm') {
@@ -59,7 +55,7 @@ const Button = ({
 
     return (
         <button
-            className={cn(basicStyle, className)}
+            className={twMerge(basicStyle, className)}
             disabled={isLoading}
             {...rest}
         >

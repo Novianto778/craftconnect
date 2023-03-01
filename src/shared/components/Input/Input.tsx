@@ -1,7 +1,6 @@
-import classNames from 'classnames';
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useForm } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
     className?: string;
@@ -45,12 +44,12 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     }
 
     return (
-        <div className={classNames('relative', wrapperClassName)}>
+        <div className={twMerge('relative', wrapperClassName)}>
             {variant === 'floating' ? (
                 <div className="relative">
                     <input
-                        className={classNames(
-                            'peer border cursor-pointer',
+                        className={twMerge(
+                            'peer cursor-pointer border',
                             basicClass,
                             className
                         )}
@@ -59,14 +58,14 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
                         ref={ref}
                         {...rest}
                     />
-                    <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
+                    <label className="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600">
                         {label}
                     </label>
                 </div>
             ) : (
                 <input
                     type={inputType}
-                    className={classNames(basicClass, className)}
+                    className={twMerge(basicClass, className)}
                     ref={ref}
                     {...rest}
                 />
@@ -87,7 +86,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
                     )}
                 </div>
             )}
-            {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
+            {error && <div className="mt-1 text-sm text-red-500">{error}</div>}
         </div>
     );
 });

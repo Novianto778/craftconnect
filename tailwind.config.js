@@ -10,11 +10,25 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                volkhov: ['Volkhov', 'serif'],
+            },
             backgroundColor: {
                 primary: '#a7bcff',
                 chat: {
                     send: '#F86320',
                     receive: '#3365FF',
+                },
+                primary: {
+                    cream: '#EEEAE5',
+                    brown: '#A8866C',
+                    'light-brown': '#A8866C',
+                },
+            },
+            colors: {
+                primary: {
+                    cream: '#EEEAE5',
+                    brown: '#A8866C',
                 },
             },
             zIndex: {
@@ -30,6 +44,9 @@ module.exports = {
                 card: 'calc(100% - 8rem)',
             },
             width: {
+                inherit: 'inherit',
+            },
+            height: {
                 inherit: 'inherit',
             },
             container: {
