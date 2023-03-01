@@ -11,14 +11,31 @@ import { CgProfile } from 'react-icons/cg';
 import useOnClickOutside from '@/shared/hooks/useOnClickOutside';
 import { useRouter } from 'next/router';
 import Button from '@/shared/components/Button/Button';
+import cn from 'classnames';
 
 type Props = {};
 
 const Navbar = (props: Props) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isFixed, setIsFixed] = useState(false);
     const [openPopover, setOpenPopover] = useState(false);
     const { currentUser } = useAuth();
     const router = useRouter();
+
+    console.log(isFixed || router.pathname !== '/');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsFixed(true);
+            } else {
+                setIsFixed(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         setIsOpen(false);
@@ -31,16 +48,30 @@ const Navbar = (props: Props) => {
     return (
         <>
             <div className="w-full">
-                <section className="relative">
-                    <nav className="flex h-[60px] w-full justify-between bg-gray-900 text-white">
+                <section className="relative z-9999">
+                    <nav
+                        className={cn('flex h-[60px] w-full justify-between ', {
+                            'bg-gray-900 text-white':
+                                isFixed || router.pathname !== '/',
+                            'bg-transparent text-black':
+                                !isFixed && router.pathname === '/',
+                            fixed: router.pathname === '/',
+                        })}
+                    >
                         <div className="md:p-auto container flex w-full items-center py-6">
                             <Link
                                 href="/"
-                                className="font-heading text-2xl font-bold"
+                                className={cn(
+                                    'font-heading text-2xl font-bold',
+                                    {
+                                        'md:text-white': !isFixed,
+                                        'text-white': isFixed,
+                                    }
+                                )}
                             >
                                 CraftConnect
                             </Link>
-                            <NavbarMenu isOpen={isOpen} />
+                            <NavbarMenu isFixed={isFixed} isOpen={isOpen} />
                             {currentUser ? (
                                 <div className="hidden items-center space-x-5 md:flex">
                                     <Link href="/chat">

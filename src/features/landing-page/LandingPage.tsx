@@ -9,6 +9,7 @@ import Keunggulan from './Keunggulan/Keunggulan';
 import Pendapat from './Pendapat/Pendapat';
 import Hero from './Hero/Hero';
 import AboutUs from './AboutUs/AboutUs';
+import JoinUs from './JoinUs/JoinUs';
 
 type Props = {};
 
@@ -142,6 +143,7 @@ const LandingPage = (props: Props) => {
             <Keunggulan />
             <Gallery />
             <Category />
+            <JoinUs />
             <Pendapat />
             <section className="home-scroll_section" ref={homeScroll}>
                 <div

@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="icon" href="/images/logo.ico" />
             </Head>
             <Toaster />
-            <div className="h-full">
+            <div className="h-full font-poppins">
                 <ModalContainer />
                 {!isAuthPage && <Navbar />}
                 <div className="h-full max-h-main">

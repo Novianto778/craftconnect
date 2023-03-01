@@ -12,6 +12,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 volkhov: ['Volkhov', 'serif'],
+                poppins: ['Poppins', 'sans-serif'],
             },
             backgroundColor: {
                 primary: '#a7bcff',
@@ -35,6 +36,7 @@ module.exports = {
                 100: 100,
                 200: 200,
                 300: 300,
+                9999: 9999,
             },
             minHeight: {
                 main: 'calc(100vh - 60px)',

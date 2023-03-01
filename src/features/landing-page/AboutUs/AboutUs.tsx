@@ -6,7 +6,7 @@ type Props = {};
 
 const AboutUs = (props: Props) => {
     return (
-        <div className="mb-10 h-[50vh] w-full bg-white md:mb-0">
+        <div className="my-10 h-[50vh] w-full bg-white">
             <div className="container grid h-full grid-cols-3 items-center justify-between gap-x-4">
                 <div className="col-span-2 md:col-span-1">
                     <h2 className="font-volkhov text-3xl font-bold">
