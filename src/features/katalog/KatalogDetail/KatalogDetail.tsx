@@ -83,7 +83,6 @@ const KatalogDetail = ({ product }: Props) => {
                                     </h3>
                                 </div>
                                 <Button
-                                    variant="custom"
                                     className="rounded bg-chat-send px-2.5 py-1 text-xs text-white"
                                     onClick={handleChat}
                                 >
