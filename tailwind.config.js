@@ -25,6 +25,7 @@ module.exports = {
                     brown: '#A8866C',
                     'light-brown': '#A8866C',
                 },
+                black: '#121212',
             },
             colors: {
                 primary: {

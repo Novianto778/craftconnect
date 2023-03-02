@@ -98,7 +98,7 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div id="smooth-content" className="main-wrapper" ref={comp}>
+        <section id="smooth-content" className="main-wrapper" ref={comp}>
             <div className="section-height">
                 <div className="sticky-element">
                     <div className="track">
@@ -250,7 +250,7 @@ const Gallery = () => {
                             </div>
                             <div className="wide-panel">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1444069788560-6ae1deb4c0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870"
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-c7b2e.appspot.com/o/gallery.png?alt=media&token=ccfd2d0a-2a2a-4ce1-be1f-71a21285b8fa"
                                     loading="eager"
                                     alt=""
                                     className="wide-panel_img"
@@ -263,7 +263,7 @@ const Gallery = () => {
                 </div>
             </div>
             {/* <div className="footer"></div> */}
-        </div>
+        </section>
     );
 };
 

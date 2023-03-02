@@ -5,6 +5,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSignOut } from 'react-firebase-hooks/auth';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
     isOpen: boolean;
@@ -40,10 +41,10 @@ const NavbarMenu = ({ isOpen, isFixed }: Props) => {
             className={cn(
                 `${
                     isOpen ? 'flex' : 'hidden'
-                } font-heading absolute top-14 right-8 z-300 mx-auto w-60 flex-col items-start gap-y-4 bg-gray-900 px-4 py-4 font-semibold md:static md:flex md:w-auto md:flex-row md:gap-y-0 md:space-x-12 md:py-0`,
+                } font-heading absolute top-14 right-8 z-300 mx-auto w-60 flex-col items-start gap-y-4 bg-black px-4 py-4 font-semibold md:static md:flex md:w-auto md:flex-row md:gap-y-0 md:space-x-12 md:py-0`,
                 {
-                    'bg-gray-900': isFixed,
-                    'bg-transparent': !isFixed,
+                    'bg-black': isFixed,
+                    'md:bg-transparent': !isFixed,
                 }
             )}
         >
@@ -89,9 +90,14 @@ const LinkItem = ({
     return (
         <li className="nav-item">
             <Link
-                className={cn('duration-300 hover:text-blue-600', {
-                    'text-blue-600': isActive,
-                })}
+                className={
+                    (twMerge(
+                        'text-white duration-300 hover:text-blue-600 md:text-black'
+                    ),
+                    cn({
+                        'text-blue-600': isActive,
+                    }))
+                }
                 href={link}
             >
                 {title}

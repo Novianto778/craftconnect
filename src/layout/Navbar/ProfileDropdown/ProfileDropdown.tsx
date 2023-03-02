@@ -30,7 +30,7 @@ const ProfileDropdown = ({ currentUser }: Props) => {
                         alt="user profile"
                     />
                 )}
-                <p className="text-sm font-semibold">
+                <p className="text-sm font-semibold text-white">
                     Hi, {currentUser?.username}
                 </p>
             </div>

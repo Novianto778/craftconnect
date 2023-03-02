@@ -22,8 +22,6 @@ const Navbar = (props: Props) => {
     const { currentUser } = useAuth();
     const router = useRouter();
 
-    console.log(isFixed || router.pathname !== '/');
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -51,7 +49,7 @@ const Navbar = (props: Props) => {
                 <section className="relative z-9999">
                     <nav
                         className={cn('flex h-[60px] w-full justify-between ', {
-                            'bg-gray-900 text-white':
+                            'bg-black text-white':
                                 isFixed || router.pathname !== '/',
                             'bg-transparent text-black':
                                 !isFixed && router.pathname === '/',

@@ -10,7 +10,7 @@ type Props = {};
 
 const Category = (props: Props) => {
     return (
-        <div className="container pb-20">
+        <section className="container pb-20">
             <h2 className="py-12 text-center text-4xl font-bold">Kategory</h2>
             <div className="category-container">
                 <div className="kain h-full w-full">
@@ -74,7 +74,7 @@ const Category = (props: Props) => {
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -1,15 +1,16 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Category from './Category/Category';
-import Gallery from './Gallery/Gallery';
-import ProductStory from './ProductStory/ProductStory';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { gsap } from 'gsap';
 import cn from 'classnames';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useLayoutEffect, useRef, useState } from 'react';
+import AboutUs from './AboutUs/AboutUs';
+import Category from './Category/Category';
+import Footer from './Footer/Footer';
+import Gallery from './Gallery/Gallery';
+import Hero from './Hero/Hero';
+import JoinUs from './JoinUs/JoinUs';
 import Keunggulan from './Keunggulan/Keunggulan';
 import Pendapat from './Pendapat/Pendapat';
-import Hero from './Hero/Hero';
-import AboutUs from './AboutUs/AboutUs';
-import JoinUs from './JoinUs/JoinUs';
+import Sponsor from './Sponsor/Sponsor';
 
 type Props = {};
 
@@ -22,95 +23,95 @@ const LandingPage = (props: Props) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     useLayoutEffect(() => {
-        childTriggers.current.map((childTrigger, index) => {
-            ScrollTrigger.create({
-                trigger: childTrigger,
-                start: 'top center',
-                end: 'bottom center',
-                onToggle: (isActive) => {
-                    if (isActive) {
-                        setActiveIndex(index);
-                    }
-                },
-            });
-        });
-        gsap.to('.first', {
-            delay: 0.2,
-            left: '-100%',
-            duration: 1.5,
-            ease: 'Expo.easeInOut',
-        });
-        gsap.to('.second', {
-            delay: 0.6,
-            left: '-100%',
-            duration: 1.5,
-            ease: 'Expo.easeInOut',
-        });
-        gsap.to('.third', {
-            delay: 1,
-            left: '-100%',
-            duration: 1.5,
-            ease: 'Expo.easeInOut',
-        });
-        gsap.fromTo(
-            '.product-title',
-            {
-                opacity: 0,
-                y: 0,
-            },
-            {
-                delay: 1.5,
-                opacity: 1,
-                y: -50,
-                duration: 1,
-                ease: 'Expo.easeInOut',
-            }
-        );
-        gsap.fromTo(
-            '.product-img',
-            {
-                opacity: 0,
-                y: -200,
-            },
-            {
-                delay: 2,
-                duration: 1,
-                opacity: 1,
-                y: -100,
-                ease: 'Expo.easeInOut',
-            }
-        );
-        gsap.fromTo(
-            '.product-desc p',
-            {
-                opacity: 0,
-                y: -50,
-            },
-            {
-                delay: 2.5,
-                opacity: 1,
-                y: -50,
-                duration: 2,
-                ease: 'Expo.easeInOut',
-            }
-        );
-        gsap.fromTo(
-            '.product-desc button',
-            {
-                opacity: 0,
-                y: -50,
-            },
-            {
-                delay: 2.5,
-                opacity: 1,
-                y: -100,
-                duration: 2,
-                ease: 'Expo.easeInOut',
-            }
-        );
+        // childTriggers.current.map((childTrigger, index) => {
+        //     ScrollTrigger.create({
+        //         trigger: childTrigger,
+        //         start: 'top center',
+        //         end: 'bottom center',
+        //         onToggle: (isActive) => {
+        //             if (isActive) {
+        //                 setActiveIndex(index);
+        //             }
+        //         },
+        //     });
+        // });
+        // gsap.to('.first', {
+        //     delay: 0.2,
+        //     left: '-100%',
+        //     duration: 1.5,
+        //     ease: 'Expo.easeInOut',
+        // });
+        // gsap.to('.second', {
+        //     delay: 0.6,
+        //     left: '-100%',
+        //     duration: 1.5,
+        //     ease: 'Expo.easeInOut',
+        // });
+        // gsap.to('.third', {
+        //     delay: 1,
+        //     left: '-100%',
+        //     duration: 1.5,
+        //     ease: 'Expo.easeInOut',
+        // });
+        // gsap.fromTo(
+        //     '.product-title',
+        //     {
+        //         opacity: 0,
+        //         y: 0,
+        //     },
+        //     {
+        //         delay: 1.5,
+        //         opacity: 1,
+        //         y: -50,
+        //         duration: 1,
+        //         ease: 'Expo.easeInOut',
+        //     }
+        // );
+        // gsap.fromTo(
+        //     '.product-img',
+        //     {
+        //         opacity: 0,
+        //         y: -200,
+        //     },
+        //     {
+        //         delay: 2,
+        //         duration: 1,
+        //         opacity: 1,
+        //         y: -100,
+        //         ease: 'Expo.easeInOut',
+        //     }
+        // );
+        // gsap.fromTo(
+        //     '.product-desc p',
+        //     {
+        //         opacity: 0,
+        //         y: -50,
+        //     },
+        //     {
+        //         delay: 2.5,
+        //         opacity: 1,
+        //         y: -50,
+        //         duration: 2,
+        //         ease: 'Expo.easeInOut',
+        //     }
+        // );
+        // gsap.fromTo(
+        //     '.product-desc button',
+        //     {
+        //         opacity: 0,
+        //         y: -50,
+        //     },
+        //     {
+        //         delay: 2.5,
+        //         opacity: 1,
+        //         y: -100,
+        //         duration: 2,
+        //         ease: 'Expo.easeInOut',
+        //     }
+        // );
     }, []);
     return (
-        <div>
+        <div className="landing-page">
             {/* <div className="h-screen w-full bg-red-400"></div> */}
             {/* <ProductStory /> */}
             {/* <div
@@ -140,12 +141,13 @@ const LandingPage = (props: Props) => {
             </div> */}
             <Hero />
             <AboutUs />
+            <Sponsor />
             <Keunggulan />
             <Gallery />
             <Category />
             <JoinUs />
             <Pendapat />
-            <section className="home-scroll_section" ref={homeScroll}>
+            {/* <section className="home-scroll_section" ref={homeScroll}>
                 <div
                     id="w-node-_7e33c050-16d7-6450-728b-4393fedf22fa-86dde1de"
                     className="home-scroll_visual page-padding"
@@ -381,8 +383,8 @@ const LandingPage = (props: Props) => {
                         </div>
                     </div>
                 </div>
-            </section>
-            <section className="h-screen w-full"></section>
+            </section> */}
+            <Footer />
         </div>
     );
 };

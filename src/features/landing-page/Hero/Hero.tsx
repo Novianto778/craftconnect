@@ -82,7 +82,7 @@ const Hero = (props: Props) => {
     }, []);
 
     return (
-        <div className="h-screen w-full bg-primary-cream">
+        <section className="h-screen w-full bg-primary-cream">
             <div className="flex h-full w-full">
                 <div className="hidden w-full flex-[3] overflow-hidden bg-black pt-10 md:block">
                     <Image
@@ -117,7 +117,7 @@ const Hero = (props: Props) => {
                             </span>
                         </div>
                     </div>
-                    <div className="col-span-12 ml-20 lg:col-span-6 lg:ml-0">
+                    <div className="col-span-12 ml-10 lg:col-span-6 lg:ml-0">
                         <div className="flex h-full flex-col justify-center">
                             <h1 className="hero-tagline w-[90%] font-volkhov text-4xl font-bold leading-[1.2] sm:w-[80%] md:text-5xl">
                                 <span className="hero-highlight">
@@ -131,7 +131,7 @@ const Hero = (props: Props) => {
                             </p>
 
                             <Link
-                                href="/explore"
+                                href="/katalog"
                                 className="hero-cta relative mt-16 flex items-center py-2 text-lg font-semibold"
                             >
                                 <span className="cta-button relative">
@@ -143,7 +143,7 @@ const Hero = (props: Props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
