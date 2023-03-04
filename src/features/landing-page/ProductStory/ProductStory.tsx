@@ -1,124 +1,127 @@
-import React, { useEffect, useRef } from 'react';
-import { FaArrowRight, FaPlay, FaVideo } from 'react-icons/fa';
-import { IconType } from 'react-icons/lib';
-import { RiArrowRightUpFill } from 'react-icons/ri';
+import Story1 from '@/assets/img/story1.png';
+import Story2 from '@/assets/img/story2.png';
+import Story3 from '@/assets/img/story3.png';
+import useMediaQuery from '@/shared/hooks/useMediaQuery';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { AiFillPlayCircle } from 'react-icons/ai';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 type Props = {};
 
 const ProductStory = (props: Props) => {
-    const trailerRef = useRef<HTMLDivElement>(null);
-    const productStoryRef = useRef<HTMLDivElement>(null);
-    const [currentIcon, setCurrentIcon] = React.useState<string | null>(null);
-
-    const animateTrailer = (e: MouseEvent, interacting: boolean) => {
-        const x = e.clientX - trailerRef?.current?.offsetWidth! / 2,
-            y = e.clientY - trailerRef?.current?.offsetHeight! / 2;
-
-        const keyframes = {
-            transform: `translate(${x}px, ${y}px) scale(${
-                interacting ? 4 : 1
-            })`,
-        };
-
-        trailerRef?.current?.animate(keyframes, {
-            duration: 800,
-            fill: 'forwards',
-        });
-    };
-
-    const getTrailerIcon = (type: string) => {
-        switch (type) {
-            case 'video':
-                return <FaPlay />;
-            case 'link':
-                return <RiArrowRightUpFill />;
-            default:
-                return <i></i>;
-        }
-    };
-
-    useEffect(() => {
-        // mouseevent type
-        const mouseMoveHandler = (e: MouseEvent) => {
-            const x = e.clientX - trailerRef?.current?.offsetWidth! / 2,
-                y = e.clientY - trailerRef?.current?.offsetHeight! / 2;
-
-            // check if mouse not in product story
-
-            // if (
-            //     e.clientX < productStoryRef?.current?.offsetLeft! ||
-            //     e.clientX >
-            //         productStoryRef?.current?.offsetLeft! +
-            //             productStoryRef?.current?.offsetWidth! ||
-            //     e.clientY < productStoryRef?.current?.offsetTop! ||
-            //     e.clientY >
-            //         productStoryRef?.current?.offsetTop! +
-            //             productStoryRef?.current?.offsetHeight!
-            // ) {
-            //     setShowTrailer(true);
-            //     const keyframes = {
-            //         transform: `translate(${x}px, ${y}px)`,
-            //     };
-
-            //     trailerRef?.current?.animate(keyframes, {
-            //         duration: 800,
-            //         fill: 'forwards',
-            //     });
-            // } else {
-            //     setShowTrailer(false);
-            // }
-            // let interacting = false;
-
-            const interactable = (e.target as HTMLElement).closest(
-                    '.interactable'
-                ),
-                interacting = interactable !== null;
-
-            // const icon = document.getElementById('trailer-icon');
-
-            animateTrailer(e, interacting);
-            if (trailerRef.current) {
-                trailerRef.current.dataset.type = interacting
-                    ? (interactable as HTMLElement).dataset.type
-                    : '';
-            }
-
-            setCurrentIcon((interactable as HTMLElement)?.dataset.type! || '');
-        };
-
-        window.addEventListener('mousemove', mouseMoveHandler);
-        return () => {
-            window.removeEventListener('mousemove', mouseMoveHandler);
-        };
-    }, []);
+    // const match = useMediaQuery('(min-width: 768px)');
+    // console.log(match);
 
     return (
-        <div
-            className="flex h-screen items-center justify-center gap-x-12 bg-gray-400"
-            ref={productStoryRef}
-        >
-            <div id="trailer" ref={trailerRef}>
-                {/* <i id="trailer-icon" className="fa-solid fa-arrow-up-right"></i> */}
-                <i id="trailer-icon">{getTrailerIcon(currentIcon!)}</i>
+        <div className="product-story bg-[#54463B]">
+            <div className="container">
+                <h1 className="pt-8 text-center font-volkhov text-4xl text-white">
+                    Cerita Produk
+                </h1>
+                <Swiper
+                    modules={[Autoplay, Navigation]}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                        },
+                    }}
+                    // autoplay={{
+                    //     delay: 2000,
+                    // }}
+                    initialSlide={1}
+                    centeredSlides={true}
+                    // loop={!match}
+                    className="!flex min-h-screen items-center justify-center"
+                >
+                    <SwiperSlide>
+                        <div className="group relative w-max duration-300 hover:scale-110">
+                            <Image
+                                src={Story2}
+                                alt="Story 2"
+                                width={500}
+                                height={500}
+                                className={
+                                    'aspect-[3/4] w-60 rounded bg-cover object-cover'
+                                }
+                            />
+                            <div className="absolute left-0 top-0 h-full w-full bg-black/20"></div>
+                            <Link
+                                href="/story/batik-jawa"
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-gray-300 opacity-0 delay-200 duration-300 group-hover:opacity-100"
+                            >
+                                <AiFillPlayCircle size={92} />
+                            </Link>
+                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Batik
+                            </span>
+                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Jawa
+                            </span>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="group relative w-max duration-300 hover:scale-110">
+                            <Image
+                                src={Story1}
+                                alt="Story 1"
+                                width={500}
+                                height={500}
+                                className={
+                                    'aspect-[3/4] w-60 rounded bg-cover object-cover'
+                                }
+                            />
+                            <div className="absolute left-0 top-0 h-full w-full bg-black/20"></div>
+                            <Link
+                                href="/story/batik-jawa"
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-gray-300 opacity-0 delay-200 duration-300 group-hover:opacity-100"
+                            >
+                                <AiFillPlayCircle size={92} />
+                            </Link>
+                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Batik
+                            </span>
+                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Jawa
+                            </span>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="group relative w-max duration-300 hover:scale-110">
+                            <Image
+                                src={Story3}
+                                alt="Story 3"
+                                width={500}
+                                height={500}
+                                className={
+                                    'aspect-[3/4] w-60 rounded bg-cover object-cover'
+                                }
+                            />
+                            <div className="absolute left-0 top-0 h-full w-full bg-black/20"></div>
+                            <Link
+                                href="/story/batik-jawa"
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-gray-300 opacity-0 delay-200 duration-300 group-hover:opacity-100"
+                            >
+                                <AiFillPlayCircle size={92} />
+                            </Link>
+                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Batik
+                            </span>
+                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                                Jawa
+                            </span>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
-
-            <div
-                className="interactable"
-                data-type="link"
-                style={{
-                    backgroundImage:
-                        'url(https://images.unsplash.com/photo-1657739774592-14c8f97eaece?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60)',
-                }}
-            ></div>
-
-            <div
-                className="interactable"
-                data-type="video"
-                style={{
-                    backgroundImage:
-                        'url(https://images.unsplash.com/photo-1657779582398-a13b5896ff19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60)',
-                }}
-            ></div>
         </div>
     );
 };

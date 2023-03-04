@@ -10,6 +10,7 @@ import Hero from './Hero/Hero';
 import JoinUs from './JoinUs/JoinUs';
 import Keunggulan from './Keunggulan/Keunggulan';
 import Pendapat from './Pendapat/Pendapat';
+import ProductStory from './ProductStory/ProductStory';
 import Sponsor from './Sponsor/Sponsor';
 
 type Props = {};
@@ -142,6 +143,7 @@ const LandingPage = (props: Props) => {
             <Hero />
             <AboutUs />
             <Sponsor />
+            <ProductStory />
             <Keunggulan />
             <Gallery />
             <Category />

@@ -90,6 +90,7 @@ const Hero = (props: Props) => {
                         width={400}
                         height={900}
                         alt="hero pattern"
+                        priority={true}
                     />
                 </div>
                 <div className="grid flex-[9] grid-cols-12 pt-10">

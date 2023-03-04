@@ -18,6 +18,40 @@
 }
 
 @layer components {
+    .clip-text {
+        display: -webkit-box;
+        max-width: 100%;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .product-story {
+        background-image: url('/images/batik-pattern.png');
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+        background-repeat: no-repeat;
+    }
+
+    .product-story .swiper-wrapper {
+        align-items: center;
+    }
+
+    /* active slide */
+    .product-story .swiper-slide-active img {
+        @apply w-72;
+    }
+
+    .product-story .swiper-slide {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .sponsor-item {
         @apply flex items-center justify-center rounded border border-gray-100 bg-white p-4 shadow;
     }
@@ -242,7 +276,7 @@
         height: 100%;
         position: absolute;
         width: 100%;
-        border: 2px solid white;
+        border: 2px solid #a8866c;
     }
     .cube div:nth-of-type(1) {
         -webkit-transform: translateZ(-20px) rotateY(180deg);
@@ -281,7 +315,6 @@
     .category-container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        /* grid-template-rows: repeat(2, 1fr); */
         width: 100%;
         height: 100%;
         gap: 20px;

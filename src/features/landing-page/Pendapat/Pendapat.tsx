@@ -5,23 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 type Props = {};
 
 const Pendapat = (props: Props) => {
     const navigationRef = useRef(null);
-    // var mySwiper = new Swiper('.swiper-container', {
-    //     // If we need pagination
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //         renderBullet: function (index, className) {
-    //             return (
-    //                 '<span class="' + className + '">' + menu[index] + '</span>'
-    //             );
-    //         },
-    //     },
-    // });
 
     return (
         <section className="relative h-screen w-screen max-w-full md:h-[80vh]">
@@ -56,85 +45,101 @@ const Pendapat = (props: Props) => {
                                 bulletActiveClass: 'swiper-active',
                             }}
                             modules={[Pagination, Autoplay]}
-                            // autoplay={{
-                            //     delay: 3000,
-                            // }}
-                            // loop
+                            autoplay={{
+                                delay: 3000,
+                            }}
+                            loop={true}
                         >
                             <SwiperSlide>
-                                <div className="flex max-w-[400px] flex-col gap-y-4 rounded border bg-white px-6 py-4 font-medium shadow-md">
-                                    <p className="text-gray-500">
-                                        “On the Windows talking painted pasture
-                                        yet its express parties use. Sure last
-                                        upon he same as knew next. Of believed
-                                        or diverted no.”
+                                <div className="flex w-full max-w-[500px] flex-col gap-y-4 rounded border bg-white px-6 py-4 text-justify font-medium shadow-md">
+                                    <p className="text-sm text-gray-500">
+                                        "Saya sangat senang dengan CraftConnect
+                                        karena mereka memberikan sarana yang
+                                        efektif untuk menghubungkan produk UMKM
+                                        dan kerajinan lokal dengan customer.
+                                        Saya sudah menjual beberapa produk saya
+                                        dan berhasil memperluas pasar saya
+                                        melalui platform ini. Sangat
+                                        direkomendasikan untuk para pelaku UMKM
+                                        yang ingin meningkatkan bisnis mereka!"
                                     </p>
                                     <div className="mb-2 flex items-center gap-x-2">
                                         <Image
-                                            src="https://images.unsplash.com/photo-1444069788560-6ae1deb4c0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                                            src="https://images.unsplash.com/photo-1498558263790-a9555e3d002d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                             alt=""
                                             width={80}
                                             height={80}
-                                            className="h-12 w-12 rounded-full"
+                                            className="h-12 w-12 rounded-full bg-cover object-cover"
                                         />
                                         <div className="flex flex-col">
                                             <p className="font-bold text-black">
-                                                Budi
+                                                Pak Eko
                                             </p>
                                             <p className="text-sm text-gray-400">
-                                                CEO CraftConnect
+                                                UMKM Kain Tenun
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="flex max-w-[400px] flex-col gap-y-4 rounded border bg-white px-6 py-4 font-medium shadow-md">
-                                    <p className="text-gray-500">
-                                        “Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Natus quis fugiat,
-                                        error facere consectetur nobis.”
+                                <div className="flex w-full max-w-[500px] flex-col gap-y-4 rounded border bg-white px-6 py-4 font-medium shadow-md">
+                                    <p className="text-sm text-gray-500">
+                                        "Sebagai konsumen, saya senang dengan
+                                        adanya platform CraftConnect karena saya
+                                        bisa mendapatkan produk-produk
+                                        berkualitas tinggi dari UMKM dan
+                                        kerajinan lokal dengan harga yang
+                                        terjangkau. Saya juga merasa puas dengan
+                                        proses pengiriman dan layanan pelanggan
+                                        yang baik dari para penjual di platform
+                                        ini."
                                     </p>
                                     <div className="mb-2 flex items-center gap-x-2">
                                         <Image
-                                            src="https://images.unsplash.com/photo-1444069788560-6ae1deb4c0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                                            src="https://images.unsplash.com/photo-1525875975471-999f65706a10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                             alt=""
                                             width={80}
                                             height={80}
-                                            className="h-12 w-12 rounded-full"
+                                            className="h-12 w-12 rounded-full bg-cover object-cover"
                                         />
                                         <div className="flex flex-col">
                                             <p className="font-bold text-black">
-                                                Budi
+                                                Reina Sari
                                             </p>
                                             <p className="text-sm text-gray-400">
-                                                CEO CraftConnect
+                                                Pekerja Kreatif
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="flex max-w-[400px] flex-col gap-y-4 rounded border bg-white px-6 py-4 font-medium shadow-md">
-                                    <p className="text-gray-500">
-                                        “Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Natus quis fugiat,
-                                        error facere consectetur nobis.”
+                                <div className="flex w-full max-w-[500px] flex-col gap-y-4 rounded border bg-white px-6 py-4 font-medium shadow-md">
+                                    <p className="text-sm text-gray-500">
+                                        "Saya senang dengan adanya platform
+                                        CraftConnect karena saya bisa menemukan
+                                        produk-produk unik dari UMKM dan
+                                        kerajinan lokal dengan mudah. Saya
+                                        sering membeli kerajinan tangan untuk
+                                        hadiah atau untuk menghias rumah saya,
+                                        dan platform ini sangat membantu dalam
+                                        menemukan produk yang saya cari."
                                     </p>
                                     <div className="mb-2 flex items-center gap-x-2">
                                         <Image
-                                            src="https://images.unsplash.com/photo-1444069788560-6ae1deb4c0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+                                            src="https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
                                             alt=""
                                             width={80}
                                             height={80}
-                                            className="h-12 w-12 rounded-full"
+                                            className="h-12 w-12 rounded-full bg-cover object-cover"
                                         />
                                         <div className="flex flex-col">
                                             <p className="font-bold text-black">
-                                                Budi
+                                                Robby Pratama
                                             </p>
                                             <p className="text-sm text-gray-400">
-                                                CEO CraftConnect
+                                                Konsultan Bisnis
                                             </p>
                                         </div>
                                     </div>

@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Toaster />
             <div className="h-full font-poppins">
                 <ModalContainer />
-                {!isAuthPage && <Navbar />}
+                {!isAuthPage && !loading && <Navbar />}
                 <div className="h-full max-h-main">
                     {loading ? <CubeLoading /> : <Component {...pageProps} />}
                 </div>

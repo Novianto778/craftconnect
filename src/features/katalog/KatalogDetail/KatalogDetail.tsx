@@ -4,6 +4,7 @@ import Button from '@/shared/components/Button/Button';
 import { formatCurrency } from '@/utils/formatCurrency';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { RiShoppingCartLine } from 'react-icons/ri';
 import { Product } from 'typings';
 import ProductHighlight from './ProductHighlight/ProductHighlight';
 
@@ -93,7 +94,15 @@ const KatalogDetail = ({ product }: Props) => {
                                 {product.description}
                             </p>
 
-                            <CheckoutActions product={product} mt={4} />
+                            <div className="mt-4 flex items-center gap-x-2">
+                                <CheckoutActions product={product} />
+                                <div className="cursor-pointer rounded-full bg-red-500 p-3 duration-300 hover:scale-95 hover:bg-red-600">
+                                    <RiShoppingCartLine
+                                        size={16}
+                                        fill="white"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

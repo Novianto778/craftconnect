@@ -33,7 +33,7 @@ const CheckoutActions = ({ mt = 0, product }: Props) => {
 
     return (
         <div
-            className="flex items-center justify-between gap-x-4"
+            className="w-full"
             style={{
                 marginTop: `${mt * 4}px`,
             }}
@@ -46,9 +46,6 @@ const CheckoutActions = ({ mt = 0, product }: Props) => {
             >
                 Checkout
             </Button>
-            <div className="cursor-pointer rounded-full bg-red-500 p-2 duration-300 hover:scale-95 hover:bg-red-600">
-                <RiShoppingCartLine size={20} fill="white" />
-            </div>
         </div>
     );
 };

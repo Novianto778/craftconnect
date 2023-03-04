@@ -25,7 +25,7 @@ const JoinUs = (props: Props) => {
                         width={150}
                         height={150}
                         alt="pattern"
-                        className="absolute -top-4 -right-10 -z-10"
+                        className="absolute -top-4 -right-10 -z-10 h-auto w-auto"
                     />
                     <div className="flex rounded bg-white px-8 py-6">
                         <input

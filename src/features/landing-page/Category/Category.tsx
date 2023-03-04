@@ -10,9 +10,11 @@ type Props = {};
 
 const Category = (props: Props) => {
     return (
-        <section className="container pb-20">
-            <h2 className="py-12 text-center text-4xl font-bold">Kategory</h2>
-            <div className="category-container">
+        <section className="container min-h-screen pb-20">
+            <h2 className="py-12 text-center font-volkhov text-4xl font-bold">
+                Kategory
+            </h2>
+            <div className="category-container font-volkhov">
                 <div className="kain h-full w-full">
                     <Image
                         src={Kain}
@@ -31,7 +33,7 @@ const Category = (props: Props) => {
                         alt="keramik"
                         width={220}
                         height={220}
-                        className="-translate-x-16 translate-y-8 object-cover"
+                        className="h-auto w-auto -translate-x-16 translate-y-8 object-cover"
                     />
                     <p className="absolute top-10 right-8 text-4xl font-semibold tracking-widest">
                         Keramik
@@ -43,7 +45,7 @@ const Category = (props: Props) => {
                         alt="kayu"
                         width={260}
                         height={260}
-                        className="absolute bottom-0 right-0 object-cover"
+                        className="absolute bottom-0 right-0 h-auto w-auto object-cover"
                     />
                     <p className="absolute top-14 left-12 text-4xl font-semibold tracking-widest">
                         Kayu
