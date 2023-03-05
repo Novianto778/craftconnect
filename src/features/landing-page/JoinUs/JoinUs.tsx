@@ -1,8 +1,6 @@
-import Button from '@/shared/components/Button/Button';
-import Input from '@/shared/components/Input/Input';
-import Image from 'next/image';
-import React from 'react';
 import DotPattern from '@/assets/icon/dot-pattern.svg';
+import Button from '@/shared/components/Button/Button';
+import Image from 'next/image';
 
 type Props = {};
 

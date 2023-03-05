@@ -1,11 +1,10 @@
 import { gsap } from 'gsap';
-import React, { useEffect } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
+import React, { useEffect } from 'react';
 
+gsap.registerPlugin(ScrollTrigger);
 const Gallery = () => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const comp = React.useRef(null);
 
     useEffect(() => {
@@ -112,9 +111,12 @@ const Gallery = () => {
                                         <div className="note-panel_img-height"></div>
                                     </div>
                                     <p>
-                                        <strong>DEAR PHOTOGRAPHERS,</strong>YOU
-                                        ARE CELEBRATED TODAY IN THIS LITTLE
-                                        VIRTUAL PHOTOGRAPHIC GALLERY.
+                                        <strong>Galeri CraftConnect</strong>
+                                    </p>
+                                    <p>
+                                        Temukan berbagai macam produk karya seni
+                                        dan kerajinan tangan dari berbagai
+                                        daerah di Indonesia.
                                     </p>
                                 </div>
                             </div>

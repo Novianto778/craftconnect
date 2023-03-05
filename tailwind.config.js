@@ -11,8 +11,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                volkhov: ['Volkhov', 'serif'],
-                poppins: ['Poppins', 'sans-serif'],
+                volkhov: 'var(--font-volkhov)',
+                poppins: 'var(--font-poppins)',
             },
             backgroundColor: {
                 primary: '#a7bcff',

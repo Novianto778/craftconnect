@@ -1,16 +1,31 @@
 import '@/features/landing-page/Gallery/gallery.css';
-import '@/features/landing-page/ProductStory/ProductStory.css';
-import '@/features/landing-page/landingpage.css';
 import '@/features/landing-page/Hero/hero.css';
+import '@/features/landing-page/landingpage.css';
+import '@/features/ProductStory/Popular/Popular.css';
 import ModalContainer from '@/layout/ModalContainer/ModalContainer';
 import Navbar from '@/layout/Navbar/Navbar';
 import CubeLoading from '@/shared/components/CubeLoading/CubeLoading';
 import '@/styles/globals.css';
+import cn from 'classnames';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+
+import { Poppins, Volkhov } from '@next/font/google';
+
+const volkhov = Volkhov({
+    weight: ['400', '700'],
+    variable: '--font-volkhov',
+    subsets: ['latin'],
+});
+
+const poppins = Poppins({
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-poppins',
+    subsets: ['latin'],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
     const [showChild, setShowChild] = useState(false);
@@ -34,8 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         };
     }, []);
 
-    const isAuthPage =
-        router.pathname === '/login' || router.pathname === '/register';
+    const isHideNavbar = false;
     useEffect(() => {
         setShowChild(true);
     }, []);
@@ -49,18 +63,22 @@ export default function App({ Component, pageProps }: AppProps) {
     }
 
     return (
-        <>
+        <div className={`${volkhov.variable} ${poppins.variable}`}>
             <Head>
                 <link rel="icon" href="/images/logo.ico" />
             </Head>
             <Toaster />
             <div className="h-full font-poppins">
                 <ModalContainer />
-                {!isAuthPage && !loading && <Navbar />}
-                <div className="h-full max-h-main">
+                {!isHideNavbar && !loading && <Navbar />}
+                <div
+                    className={cn('h-full max-h-main', {
+                        'mt-[60px]': !isHideNavbar && router.pathname !== '/',
+                    })}
+                >
                     {loading ? <CubeLoading /> : <Component {...pageProps} />}
                 </div>
             </div>
-        </>
+        </div>
     );
 }

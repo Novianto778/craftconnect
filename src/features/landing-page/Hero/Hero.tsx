@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import React, { useEffect } from 'react';
 import HeroPattern from '@/assets/img/hero-pattern.png';
 import HeroImg from '@/assets/img/hero.png';
-import Link from 'next/link';
 import AnimatedArrow from '@/shared/components/AnimatedArrow/AnimatedArrow';
 import { gsap } from 'gsap';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect } from 'react';
 
 type Props = {};
 
@@ -108,9 +108,12 @@ const Hero = (props: Props) => {
                                     <span className="shaft"></span>
                                 </span>
                                 <span className="main">
-                                    <span className="text text-sm">
+                                    <a
+                                        href="#category"
+                                        className="text text-sm"
+                                    >
                                         Lihat Semua Kategori
-                                    </span>
+                                    </a>
                                     <span className="the-arrow -right">
                                         <span className="shaft"></span>
                                     </span>

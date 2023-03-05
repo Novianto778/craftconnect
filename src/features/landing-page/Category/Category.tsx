@@ -1,16 +1,15 @@
-import Image from 'next/image';
-import React from 'react';
-import Kain from '@/features/landing-page/Category/assets/kain.png';
-import Keramik from '@/features/landing-page/Category/assets/keramik.png';
-import Kayu from '@/features/landing-page/Category/assets/kayu.png';
-import Kaca from '@/features/landing-page/Category/assets/kaca.png';
 import Besi from '@/features/landing-page/Category/assets/besi.png';
+import Kaca from '@/features/landing-page/Category/assets/kaca.png';
+import Kain from '@/features/landing-page/Category/assets/kain.png';
+import Kayu from '@/features/landing-page/Category/assets/kayu.png';
+import Keramik from '@/features/landing-page/Category/assets/keramik.png';
+import Image from 'next/image';
 
 type Props = {};
 
 const Category = (props: Props) => {
     return (
-        <section className="container min-h-screen pb-20">
+        <section className="container min-h-screen pb-20" id="category">
             <h2 className="py-12 text-center font-volkhov text-4xl font-bold">
                 Kategory
             </h2>
@@ -33,7 +32,7 @@ const Category = (props: Props) => {
                         alt="keramik"
                         width={220}
                         height={220}
-                        className="h-auto w-auto -translate-x-16 translate-y-8 object-cover"
+                        className="h-auto w-52 -translate-x-16 translate-y-8 object-cover"
                     />
                     <p className="absolute top-10 right-8 text-4xl font-semibold tracking-widest">
                         Keramik
@@ -45,7 +44,7 @@ const Category = (props: Props) => {
                         alt="kayu"
                         width={260}
                         height={260}
-                        className="absolute bottom-0 right-0 h-auto w-auto object-cover"
+                        className="absolute bottom-0 right-0 h-auto w-32 object-cover md:w-52"
                     />
                     <p className="absolute top-14 left-12 text-4xl font-semibold tracking-widest">
                         Kayu

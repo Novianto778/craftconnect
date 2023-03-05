@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import React from 'react';
 
 type Props = {};
 
 const Sponsor = (props: Props) => {
     return (
-        <section className="container flex min-h-[40vh] items-center">
+        <section className="container flex min-h-[40vh] items-center py-10">
             <div className="mx-auto flex max-w-[800px] flex-wrap justify-center gap-4">
                 <div className="sponsor-item">
                     <Image

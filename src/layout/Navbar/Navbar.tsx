@@ -1,17 +1,17 @@
+import Button from '@/shared/components/Button/Button';
 import useAuth from '@/shared/hooks/useAuth';
+import useOnClickOutside from '@/shared/hooks/useOnClickOutside';
+import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { BsChatQuote } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import NavbarMenu from './NavbarMenu/NavbarMenu';
 import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
-import { CgProfile } from 'react-icons/cg';
-import useOnClickOutside from '@/shared/hooks/useOnClickOutside';
-import { useRouter } from 'next/router';
-import Button from '@/shared/components/Button/Button';
-import cn from 'classnames';
 
 type Props = {};
 
@@ -48,13 +48,16 @@ const Navbar = (props: Props) => {
             <div className="w-full">
                 <section className="relative z-9999">
                     <nav
-                        className={cn('flex h-[60px] w-full justify-between ', {
-                            'bg-black text-white':
-                                isFixed || router.pathname !== '/',
-                            'bg-transparent text-black':
-                                !isFixed && router.pathname === '/',
-                            fixed: router.pathname === '/',
-                        })}
+                        className={cn(
+                            'fixed top-0 flex h-[60px] w-full justify-between',
+                            {
+                                'bg-black text-white':
+                                    isFixed || router.pathname !== '/',
+                                'bg-transparent text-black':
+                                    !isFixed && router.pathname === '/',
+                                // fixed: router.pathname === '/',
+                            }
+                        )}
                     >
                         <div className="md:p-auto container flex w-full items-center py-6">
                             <Link
@@ -67,7 +70,13 @@ const Navbar = (props: Props) => {
                                     }
                                 )}
                             >
-                                CraftConnect
+                                <Image
+                                    src="/logo.png"
+                                    width={200}
+                                    height={200}
+                                    alt="logo"
+                                    className="w-full max-w-[200px]"
+                                />
                             </Link>
                             <NavbarMenu isFixed={isFixed} isOpen={isOpen} />
                             {currentUser ? (

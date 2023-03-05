@@ -1,4 +1,8 @@
 import '../src/styles/globals.css';
+import '@/features/landing-page/Gallery/gallery.css';
+import '@/features/landing-page/Hero/hero.css';
+import '@/features/landing-page/landingpage.css';
+import '@/features/ProductStory/Popular/Popular.css';
 // import '!style-loader!css-loader!postcss-loader!tailwindcss/tailwind.css';
 import { withConsole } from '@storybook/addon-console';
 import { addDecorator } from '@storybook/react';
