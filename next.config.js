@@ -9,9 +9,6 @@ const nextConfig = {
             'images.unsplash.com',
         ],
     },
-    fontLoaders: [
-        { loader: '@next/font/google', options: { subsets: ['latin'] } },
-    ],
 };
 
 module.exports = nextConfig;

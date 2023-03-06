@@ -4,13 +4,15 @@ import { firestore } from '@/lib/firebase';
 import { doc, getDoc, getDocs, collection } from 'firebase/firestore';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { Product } from 'typings';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const KatalogDetailPage = ({ product }: Props) => {
     return (
         <div>
-            <KatalogDetail product={product} />
+            <KatalogDetail product={product!} />
         </div>
     );
 };
@@ -39,7 +41,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         props: {
             product: JSON.parse(JSON.stringify(product)),
         },
-        revalidate: 60,
+        revalidate: 1,
     };
 };
 
