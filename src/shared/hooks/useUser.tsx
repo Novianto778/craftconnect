@@ -19,7 +19,8 @@ const useUser = () => {
             try {
                 const q = query(
                     collection(firestore, 'users'),
-                    where('uid', '!=', currentUser?.uid)
+                    where('uid', '!=', currentUser?.uid),
+                    where('role', '==', 'umkm')
                 );
 
                 const querySnapshot = await getDocs(q);

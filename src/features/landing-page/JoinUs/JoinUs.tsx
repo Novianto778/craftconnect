@@ -25,7 +25,7 @@ const JoinUs = (props: Props) => {
                         alt="pattern"
                         className="absolute -top-4 -right-10 -z-10 h-auto w-auto"
                     />
-                    <div className="flex rounded bg-white px-8 py-6">
+                    <div className="flex rounded bg-white p-2 md:px-8 md:py-6">
                         <input
                             className="text-sm focus:outline-none"
                             placeholder="email bisnis anda"

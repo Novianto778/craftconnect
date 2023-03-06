@@ -7,7 +7,12 @@ import { doc, setDoc } from 'firebase/firestore';
 import { getDownloadURL, ref } from 'firebase/storage';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import {
+    useCreateUserWithEmailAndPassword,
+    useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import { useUploadFile } from 'react-firebase-hooks/storage';
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
@@ -38,20 +43,21 @@ const RegisterForm = (props: Props) => {
     } = useForm<FormType>({
         resolver: zodResolver(FormSchema),
     });
+    const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
     const [uploadFile] = useUploadFile();
 
     if (error) {
         toast.error(error.message);
     }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
 
     const onSubmit = async (data: FormType) => {
+        setIsLoading(true);
         const createdUser = await createUserWithEmailAndPassword(
             data.email,
             data.password
@@ -72,6 +78,9 @@ const RegisterForm = (props: Props) => {
             avatar: avatarUrl,
         });
         await setDoc(doc(firestore, 'userChats', createdUser?.user?.uid!), {});
+        await signInWithEmailAndPassword(data.email, data.password);
+        setIsLoading(false);
+        router.push('/');
     };
     return (
         <>
@@ -141,7 +150,14 @@ const RegisterForm = (props: Props) => {
                         </span>
                     </label>
                 </div>
-                <Button type="submit">Sign Up</Button>
+                {errors.avatar && (
+                    <p className="text-sm text-red-500">
+                        {errors.avatar.message as string}
+                    </p>
+                )}
+                <Button type="submit" isLoading={loading || isLoading}>
+                    Sign Up
+                </Button>
             </form>
             <p>
                 Sudah punya akun?{' '}

@@ -22,12 +22,12 @@ const ProductCard = ({ product }: Props) => {
             >
                 <div className="relative flex max-h-64 w-full items-center justify-center overflow-hidden bg-gray-200 p-4">
                     <Image
-                        src={product?.highlightImage!}
+                        src={product?.images[0]!}
                         alt="product"
                         width={280}
                         height={280}
                         className="w-40 bg-cover object-cover"
-                        blurDataURL={product?.highlightImage!}
+                        blurDataURL={product?.images[0]!}
                         placeholder="blur"
                         priority
                     />

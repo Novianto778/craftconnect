@@ -22,7 +22,7 @@ const Katalog = ({ products }: Props) => {
 
     return (
         <>
-            <div className="container relative mx-auto flex h-full max-h-main gap-x-4 pt-4">
+            <div className="container relative mx-auto flex h-full max-h-main gap-x-4 pt-8">
                 <div
                     className={cn(filterClasses, {
                         hidden: !isFilterOpen,

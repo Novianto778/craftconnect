@@ -97,7 +97,11 @@ const Gallery = () => {
     }, []);
 
     return (
-        <section id="smooth-content" className="main-wrapper" ref={comp}>
+        <section
+            id="smooth-content"
+            className="main-wrapper hidden md:block"
+            ref={comp}
+        >
             <div className="section-height">
                 <div className="sticky-element">
                     <div className="track">

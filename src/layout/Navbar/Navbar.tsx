@@ -123,13 +123,16 @@ const Navbar = (props: Props) => {
                             ) : (
                                 <div className="hidden items-center space-x-5 md:flex">
                                     <Link href="/login">
-                                        <Button>Login</Button>
+                                        <Button size="sm">Login</Button>
                                     </Link>
                                     <Link
                                         href="/register"
                                         className="hidden lg:block"
                                     >
-                                        <Button className="hidden bg-orange-500 lg:block">
+                                        <Button
+                                            size="sm"
+                                            className="hidden bg-orange-500 lg:block"
+                                        >
                                             Register
                                         </Button>
                                     </Link>

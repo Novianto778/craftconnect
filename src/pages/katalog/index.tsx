@@ -1,15 +1,17 @@
 import Katalog from '@/features/katalog/Katalog';
-import { withProtected } from '@/layout/route';
 import { firestore } from '@/lib/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import React from 'react';
+import Head from 'next/head';
 
 const KatalogPage = ({
     products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <>
+            <Head>
+                <title>Katalog</title>
+            </Head>
             <Katalog products={products} />
         </>
     );
@@ -32,21 +34,3 @@ export const getStaticProps: GetStaticProps = async () => {
         revalidate: 60,
     };
 };
-
-// export const getStaticPaths = async () => {
-//     const productRef = await getDocs(collection(firestore, 'products'));
-
-//     const products = productRef.docs.map((doc) => ({
-//         id: doc.id,
-//         ...doc.data(),
-//     }));
-
-//     const paths = products.map((product) => ({
-//         params: { id: product.id },
-//     }));
-
-//     return {
-//         paths,
-//         fallback: false,
-//     };
-// };
