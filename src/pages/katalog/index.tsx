@@ -7,17 +7,20 @@ import { useEffect, useState } from 'react';
 import { Product } from 'typings';
 
 const KatalogPage = () => {
-    const [products, setProducts] = useState<Product[] | null>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     useEffect(() => {
         const getProducts = async () => {
             const productsRef = await getDocs(
                 collection(firestore, 'products')
             );
 
-            const products = productsRef.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
+            const products = productsRef.docs.map(
+                (doc) =>
+                    ({
+                        id: doc.id,
+                        ...doc.data(),
+                    } as Product)
+            );
 
             setProducts(products);
         };
