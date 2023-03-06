@@ -9,38 +9,38 @@ import { Product } from 'typings';
 
 // ssr props
 type Props = {
-    product: InferGetServerSidePropsType<typeof getServerSideProps>;
+    product: Product;
 };
 
-const KatalogDetailPage = (product: Props) => {
-    const [loading, setLoading] = useState<boolean>(true);
-    const [singleProduct, setSingleProduct] = useState<Product | null>(null);
-    const router = useRouter();
+const KatalogDetailPage = ({ product }: Props) => {
+    // const [loading, setLoading] = useState<boolean>(true);
+    // const [singleProduct, setSingleProduct] = useState<Product | null>(null);
+    // const router = useRouter();
 
-    console.log(router.query.slug);
+    // console.log(product);
 
-    useEffect(() => {
-        setLoading(true);
-        if (!router.query.slug) return;
-        const getProduct = async () => {
-            const productRef = await getDoc(
-                doc(firestore, 'products', router.query.slug as string)
-            );
-            if (!productRef.exists()) return;
-            setLoading(false);
-            setSingleProduct(productRef.data() as Product);
-        };
+    // useEffect(() => {
+    //     setLoading(true);
+    //     if (!router.query.slug) return;
+    //     const getProduct = async () => {
+    //         const productRef = await getDoc(
+    //             doc(firestore, 'products', router.query.slug as string)
+    //         );
+    //         if (!productRef.exists()) return;
+    //         setLoading(false);
+    //         setSingleProduct(productRef.data() as Product);
+    //     };
 
-        getProduct();
-    }, [router.query.slug]);
+    //     getProduct();
+    // }, [router.query.slug]);
 
-    if (loading) return <Spinner />;
+    // if (loading) return <Spinner />;
 
-    if (!singleProduct && !loading) return <div>Product not found</div>;
+    // if (!singleProduct && !loading) return <div>Product not found</div>;
 
     return (
         <div>
-            <KatalogDetail product={singleProduct!} />
+            <KatalogDetail product={product} />
         </div>
     );
 };
@@ -49,7 +49,6 @@ export default KatalogDetailPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const slug = context.params?.slug;
-    console.log(slug);
 
     const productRef = await getDoc(doc(firestore, 'products', slug as string));
 
@@ -59,14 +58,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         };
     }
 
-    const product = {
-        id: productRef.id,
-        ...productRef.data(),
-    };
+    const product: Product = productRef.data() as Product;
 
     return {
         props: {
-            product: JSON.parse(JSON.stringify(product)),
+            product,
         },
     };
 };

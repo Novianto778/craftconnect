@@ -111,7 +111,7 @@ const KatalogDetail = ({ product }: Props) => {
                     </div>
                 </div>
             </div>
-            {product?.highlight!.length > 0 && (
+            {product?.highlight && (
                 <div className="mt-20">
                     <ProductHighlight
                         highlight={product.highlight}
