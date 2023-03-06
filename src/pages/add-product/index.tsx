@@ -50,6 +50,7 @@ const AddProduct = (props: Props) => {
     const onSubmit = async (data: any) => {
         setLoading(true);
         try {
+            let productData;
             const images = data.images;
             const imagesUrl: string[] = [];
 
@@ -66,22 +67,34 @@ const AddProduct = (props: Props) => {
                 imagesUrl.push(imageUrl);
             }
 
-            const highlightImageRef = ref(
-                storage,
-                `products/${data.name}/${data.highlightImage.name}`
-            );
+            if (data.highlightImage) {
+                const highlightImageRef = ref(
+                    storage,
+                    `products/${data.name}/${data.highlightImage.name}`
+                );
 
-            await uploadFile(highlightImageRef, data.highlightImage);
-            const highlightImageUrl = await getDownloadURL(highlightImageRef);
+                await uploadFile(highlightImageRef, data.highlightImage);
+                const highlightImageUrl = await getDownloadURL(
+                    highlightImageRef
+                );
 
-            const productData: Product = {
-                ...data,
-                images: imagesUrl,
-                highlightImage: highlightImageUrl,
-                userInfo: {
-                    ...currentUser,
-                },
-            };
+                productData = {
+                    ...data,
+                    images: imagesUrl,
+                    highlightImage: highlightImageUrl,
+                    userInfo: {
+                        ...currentUser,
+                    },
+                };
+            } else {
+                productData = {
+                    ...data,
+                    images: imagesUrl,
+                    userInfo: {
+                        ...currentUser,
+                    },
+                };
+            }
 
             const productRef = doc(firestore, 'products', uuid());
             batch.set(productRef, productData);

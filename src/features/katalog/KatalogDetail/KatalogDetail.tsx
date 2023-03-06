@@ -20,6 +20,8 @@ const KatalogDetail = ({ product }: Props) => {
         handleSelect(product.userInfo);
     };
 
+    console.log(product);
+
     return (
         <div className="container">
             <div className="mt-4 h-full w-full">
@@ -29,17 +31,19 @@ const KatalogDetail = ({ product }: Props) => {
                         <div className="flex flex-col gap-2">
                             <div className="relative h-72 w-full overflow-hidden rounded-md border">
                                 <Image
-                                    src={product.images[0]}
+                                    src={product?.images[0]}
                                     fill
                                     alt="product"
                                     className="object-cover"
                                     sizes="(max-width: 640px) 100vw, 640px"
                                 />
                             </div>
-                            {product.images.length > 1 && (
+                            {product?.images.length > 1 && (
                                 <div className="flex gap-x-2">
                                     {[
-                                        ...new Array(product.images.length - 1),
+                                        ...new Array(
+                                            product?.images.length - 1
+                                        ),
                                     ].map((_, index) => (
                                         <div
                                             className="relative flex h-20 w-20 flex-col overflow-hidden rounded"
@@ -61,13 +65,13 @@ const KatalogDetail = ({ product }: Props) => {
                     <div className="col-span-12 md:col-start-7 md:col-end-13">
                         <div className="flex flex-col">
                             <p className="mb-1 text-xs font-medium text-gray-500">
-                                Bahan {product.category}
+                                Bahan {product?.category}
                             </p>
                             <h6 className="text-2xl font-bold tracking-widest text-blue-600">
-                                {product.name}
+                                {product?.name}
                             </h6>
                             <p className="mt-2 text-xl font-semibold tracking-wider">
-                                {formatCurrency(product.price)}
+                                {formatCurrency(product?.price)}
                             </p>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-x-2">
@@ -80,7 +84,7 @@ const KatalogDetail = ({ product }: Props) => {
                                         />
                                     </div>
                                     <h3 className="text-sm font-medium text-black">
-                                        {product.userInfo.username}
+                                        {product?.userInfo.username}
                                     </h3>
                                 </div>
                                 <Button
@@ -91,7 +95,7 @@ const KatalogDetail = ({ product }: Props) => {
                                 </Button>
                             </div>
                             <p className="mt-4 text-sm text-gray-500">
-                                {product.description}
+                                {product?.description}
                             </p>
 
                             <div className="mt-4 flex items-center gap-x-2">
@@ -107,7 +111,7 @@ const KatalogDetail = ({ product }: Props) => {
                     </div>
                 </div>
             </div>
-            {product?.highlight && (
+            {product?.highlight!.length > 0 && (
                 <div className="mt-20">
                     <ProductHighlight
                         highlight={product.highlight}
