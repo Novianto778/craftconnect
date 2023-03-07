@@ -31,7 +31,7 @@ const ProductHighlight = ({ highlight, image }: Props) => {
                     />
                 </div>
                 <div
-                    className={`col-span-12 flex flex-col gap-y-20 md:col-span-6 ${
+                    className={`col-span-12 flex flex-col gap-y-40 md:col-span-6 ${
                         gapClasses[highlight?.length!]
                     }`}
                 >

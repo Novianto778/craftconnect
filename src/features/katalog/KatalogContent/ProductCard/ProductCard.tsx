@@ -50,7 +50,7 @@ const ProductCard = ({ product }: Props) => {
                     </p>
 
                     <div
-                        className="absolute right-4 -top-4 w-max cursor-pointer rounded-full bg-red-500 p-3 duration-300 hover:scale-95 hover:bg-red-600"
+                        className="absolute right-4 -top-4 w-max cursor-pointer rounded-full bg-chat-send p-3 duration-300 hover:scale-95 hover:bg-orange-600"
                         onClick={(e) => handleCart(e)}
                     >
                         <RiShoppingCartLine size={16} fill="white" />

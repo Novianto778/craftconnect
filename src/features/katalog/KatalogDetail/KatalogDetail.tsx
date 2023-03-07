@@ -10,6 +10,7 @@ import { Product } from 'typings';
 import ProductHighlight from './ProductHighlight/ProductHighlight';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import { toast } from 'react-hot-toast';
 
 type Props = {
     product: Product;
@@ -26,6 +27,10 @@ const KatalogDetail = ({ product }: Props) => {
     const handleChat = () => {
         router.push('/chat');
         handleSelect(product.userInfo);
+    };
+
+    const handleCart = () => {
+        toast.success('Produk berhasil ditambahkan ke keranjang');
     };
 
     return (
@@ -163,7 +168,10 @@ const KatalogDetail = ({ product }: Props) => {
 
                             <div className="mt-4 flex items-center gap-x-2">
                                 <CheckoutActions product={product} />
-                                <div className="cursor-pointer rounded-full bg-red-500 p-3 duration-300 hover:scale-95 hover:bg-red-600">
+                                <div
+                                    className="cursor-pointer rounded-full bg-chat-send p-3 duration-300 hover:scale-95 hover:bg-orange-600"
+                                    onClick={handleCart}
+                                >
                                     <RiShoppingCartLine
                                         size={16}
                                         fill="white"
