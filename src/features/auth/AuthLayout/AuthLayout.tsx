@@ -13,7 +13,7 @@ const AuthLayout = ({ children, title }: Props) => {
                 <title>{title}</title>
             </Head>
 
-            <div className="context absolute top-0 left-1/2 z-50 flex h-screen -translate-x-1/2 items-center justify-center">
+            <div className="context pt-[60px] absolute top-0 left-1/2 z-50 flex min-h-main h-full -translate-x-1/2 items-center justify-center">
                 <div className="flex w-full max-w-[400px] flex-col items-center gap-3 rounded-xl bg-white p-8">
                     <span className="font-primary text-3xl font-bold text-gray-700">
                         CraftConnect

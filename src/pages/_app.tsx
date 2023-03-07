@@ -79,7 +79,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 {!isHideNavbar && !loading && <Navbar />}
                 <div
                     className={cn('h-full max-h-main', {
-                        'mt-[72px]': !isHideNavbar && router.pathname !== '/',
+                        'mt-[60px]': !isHideNavbar && router.pathname !== '/',
                     })}
                 >
                     {loading ? <CubeLoading /> : <Component {...pageProps} />}

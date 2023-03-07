@@ -66,7 +66,6 @@ const Navbar = (props: Props) => {
                                     isFixed || router.pathname !== '/',
                                 'bg-transparent text-black':
                                     !isFixed && router.pathname === '/',
-                                // fixed: router.pathname === '/',
                             }
                         )}
                     >
@@ -82,7 +81,7 @@ const Navbar = (props: Props) => {
                                 )}
                             >
                                 <Image
-                                    src="/logo.png"
+                                    src="/logo.svg"
                                     width={200}
                                     height={200}
                                     alt="logo"

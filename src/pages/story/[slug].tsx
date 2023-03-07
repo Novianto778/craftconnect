@@ -1,13 +1,17 @@
 import ProductStory from '@/features/ProductStory/ProductStory';
+import Head from 'next/head';
 import React from 'react';
 
 type Props = {};
 
 const ProductStoryPage = (props: Props) => {
     return (
-        <div>
+        <>
+        <Head>
+            <title>Product Story</title>
+        </Head>
             <ProductStory />
-        </div>
+        </>
     );
 };
 

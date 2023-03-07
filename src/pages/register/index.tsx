@@ -9,6 +9,7 @@ const RegisterPage = (props: Props) => {
     
     return (
         <>
+        
             <AuthLayout title="Register">
                 <RegisterForm />
             </AuthLayout>

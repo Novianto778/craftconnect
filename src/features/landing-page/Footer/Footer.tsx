@@ -8,7 +8,7 @@ const Footer = (props: Props) => {
             <div className="container grid grid-cols-12 gap-y-8 text-white md:gap-x-12">
                 <div className="col-span-12 flex flex-col gap-y-8 md:col-span-3">
                     <Image
-                        src="/logo.png"
+                        src="/logo.svg"
                         width={500}
                         height={500}
                         alt="logo"
