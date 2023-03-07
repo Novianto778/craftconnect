@@ -14,23 +14,14 @@ import {
     useSignInWithEmailAndPassword,
 } from 'react-firebase-hooks/auth';
 import { useUploadFile } from 'react-firebase-hooks/storage';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import ReactSelect from 'react-select';
-import { FormSchema, FormType } from './register.types';
+import { RegisterSchema, RegisterType } from './register.types';
 
 type RoleType = {
     value: string;
     label: string;
 };
-
-const roleOptions: RoleType[] = [
-    { value: 'umkm', label: 'UMKM' },
-    {
-        value: 'customer',
-        label: 'Customer',
-    },
-];
 
 type Props = {};
 
@@ -38,11 +29,11 @@ const RegisterForm = (props: Props) => {
     const {
         register,
         handleSubmit,
-        control,
         formState: { errors },
-    } = useForm<FormType>({
-        resolver: zodResolver(FormSchema),
+    } = useForm<RegisterType>({
+        resolver: zodResolver(RegisterSchema),
     });
+    const [image, setImage] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
@@ -52,11 +43,13 @@ const RegisterForm = (props: Props) => {
 
     const [uploadFile] = useUploadFile();
 
+    console.log(errors);
+
     if (error) {
         toast.error(error.message);
     }
 
-    const onSubmit = async (data: FormType) => {
+    const onSubmit = async (data: RegisterType) => {
         setIsLoading(true);
         const createdUser = await createUserWithEmailAndPassword(
             data.email,
@@ -66,16 +59,16 @@ const RegisterForm = (props: Props) => {
             storage,
             `avatars/${data.username}/${createdUser?.user?.uid}`
         );
-        await uploadFile(storageRef, data.avatar[0]);
-        const avatarUrl = await getDownloadURL(storageRef);
+        // await uploadFile(storageRef, data.avatar[0]);
+        // const avatarUrl = await getDownloadURL(storageRef);
 
         const userRef = doc(firestore, 'users', createdUser?.user?.uid!);
         await setDoc(userRef, {
             uid: createdUser?.user?.uid,
             username: data.username,
             email: data.email,
-            role: data.role.value,
-            avatar: avatarUrl,
+            role: 'customer',
+            avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
         });
         await setDoc(doc(firestore, 'userChats', createdUser?.user?.uid!), {});
         await signInWithEmailAndPassword(data.email, data.password);
@@ -115,26 +108,31 @@ const RegisterForm = (props: Props) => {
                     error={errors.password?.message}
                     {...register('password')}
                 />
-                <Controller
-                    name="role"
-                    control={control}
-                    render={({ field }) => (
-                        <ReactSelect
-                            options={roleOptions}
-                            placeholder="Pilih Role"
-                            className="text-sm"
-                            {...field}
-                        />
-                    )}
-                />
-
-                <div>
+                {/* <div>
                     <input
                         type="file"
                         {...register('avatar')}
                         id="avatar"
                         className="hidden"
+                        onChange={(e) => {
+                            if (e.target.files) {
+                                setImage(
+                                    URL.createObjectURL(e.target.files[0])
+                                );
+                            }
+                        }}
                     />
+                </div>
+                {image ? (
+                    <div className="relative h-20 w-20">
+                        <Image
+                            src={image}
+                            width={64}
+                            height={64}
+                            alt="avatar"
+                        />
+                    </div>
+                ) : (
                     <label
                         htmlFor="avatar"
                         className="flex cursor-pointer items-center gap-x-2"
@@ -149,7 +147,7 @@ const RegisterForm = (props: Props) => {
                             Tambahkan Avatar
                         </span>
                     </label>
-                </div>
+                )} */}
                 {errors.avatar && (
                     <p className="text-sm text-red-500">
                         {errors.avatar.message as string}

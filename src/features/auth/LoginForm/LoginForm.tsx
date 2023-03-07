@@ -23,7 +23,7 @@ const LoginForm = (props: Props) => {
 
     const onSubmit = async (data: LoginType) => {
         await signInWithEmailAndPassword(data.email, data.password);
-        if (error && !loading) {
+    if (error && !loading) {
             toast.error(error.message);
         }
     };
