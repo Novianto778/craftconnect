@@ -1,3 +1,4 @@
+import Spinner from '@/shared/components/Spinner/Spinner';
 import useUser from '@/shared/hooks/useUser';
 import { useModalStore } from '@/store/modalStore';
 import React from 'react';
@@ -11,9 +12,12 @@ const UserModal = (props: Props) => {
     const { handleSelect } = useChats();
     const closeModal = useModalStore((state) => state.closeModal);
 
+    console.log(users);
+    
+
     return (
         <div
-            className="modal fade fixed top-1/2 left-1/2 z-200 h-screen  w-screen -translate-x-1/4 -translate-y-1/4 overflow-y-auto overflow-x-hidden outline-none"
+            className="modal fade fixed top-1/2 left-1/2 z-200  w-screen -translate-x-1/4 -translate-y-1/2 overflow-y-auto overflow-x-hidden outline-none h-[70vh]"
             id="staticBackdrop"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
@@ -37,7 +41,13 @@ const UserModal = (props: Props) => {
                             aria-label="Close"
                         ></button>
                     </div>
-                    <div className="modal-body relative p-4">
+                    <div className="modal-body relative p-4 max-h-80 overflow-y-auto">
+                        {
+                            loading && <p>Loading...</p>
+                        }
+                        {
+                            !loading && !users && <p>Tidak ada user</p>
+                        }
                         {users &&
                             users.map((user) => (
                                 <UserListItem

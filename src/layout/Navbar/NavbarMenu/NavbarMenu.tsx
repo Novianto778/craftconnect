@@ -27,10 +27,6 @@ const LINKS = [
         link: 'https://craftconnect-docs.netlify.app',
         target: '_blank',
     },
-    {
-        title: 'Contact',
-        link: '/contact',
-    },
 ];
 
 const NavbarMenu = ({ isOpen, isFixed }: Props) => {
@@ -51,10 +47,10 @@ const NavbarMenu = ({ isOpen, isFixed }: Props) => {
                 }
             )}
         >
-            {LINKS.map((link) => {
+            {LINKS.map((link, index) => {
                 if (link.target) {
                     return (
-                        <li className="nav-item">
+                        <li className="nav-item" key={index}>
                             <a
                                 className={
                                     (twMerge(

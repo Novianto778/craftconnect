@@ -9,7 +9,6 @@ import { useEffect, useRef, useState } from 'react';
 import { BsChatQuote } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
-import { RiShoppingCartLine } from 'react-icons/ri';
 import NavbarMenu from './NavbarMenu/NavbarMenu';
 import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
 

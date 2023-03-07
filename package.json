@@ -27,6 +27,7 @@
         "react-hook-form": "^7.43.1",
         "react-hot-toast": "^2.4.0",
         "react-icons": "^4.7.1",
+        "react-image-lightbox": "^5.1.4",
         "react-select": "^5.7.0",
         "storybook-addon-next-router": "^4.0.2",
         "swiper": "^9.1.0",

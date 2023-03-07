@@ -21,7 +21,7 @@ const ProductHighlight = ({ highlight, image }: Props) => {
             <h3 className="text-2xl font-bold tracking-widest text-blue-600">
                 Highlight Produk
             </h3>
-            <div className="mt-8 grid grid-cols-12 items-center md:gap-x-12">
+            <div className="mt-8 grid grid-cols-12 py-8 md:gap-x-12 h-full">
                 <div className="relative col-span-12 h-[500px] w-full overflow-hidden rounded md:col-span-6 md:max-w-[100%]">
                     <Image
                         src={image!}

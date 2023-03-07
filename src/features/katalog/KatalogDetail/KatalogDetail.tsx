@@ -4,15 +4,23 @@ import Button from '@/shared/components/Button/Button';
 import { formatCurrency } from '@/utils/formatCurrency';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { Product } from 'typings';
 import ProductHighlight from './ProductHighlight/ProductHighlight';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 type Props = {
     product: Product;
 };
 
 const KatalogDetail = ({ product }: Props) => {
+    const [state, setState] = useState({
+        photoIndex: 0,
+        isOpen: false,
+    });
+
     const router = useRouter();
     const { handleSelect } = useChats();
     const handleChat = () => {
@@ -20,10 +28,51 @@ const KatalogDetail = ({ product }: Props) => {
         handleSelect(product.userInfo);
     };
 
-    console.log(product.highlight);
-
     return (
         <div className="container">
+            {state.isOpen && (
+                <Lightbox
+                    mainSrc={product.images[state.photoIndex]}
+                    nextSrc={
+                        product.images[
+                            (state.photoIndex + 1) % product.images.length
+                        ]
+                    }
+                    prevSrc={
+                        product.images[
+                            (state.photoIndex + product.images.length - 1) %
+                                product.images.length
+                        ]
+                    }
+                    onImageLoad={() => {
+                        setState({
+                            ...state,
+                            photoIndex: state.photoIndex,
+                        });
+                    }}
+                    onCloseRequest={() =>
+                        setState({
+                            ...state,
+                            isOpen: false,
+                        })
+                    }
+                    onMovePrevRequest={() =>
+                        setState({
+                            ...state,
+                            photoIndex:
+                                (state.photoIndex + product.images.length - 1) %
+                                product.images.length,
+                        })
+                    }
+                    onMoveNextRequest={() =>
+                        setState({
+                            ...state,
+                            photoIndex:
+                                (state.photoIndex + 1) % product.images.length,
+                        })
+                    }
+                />
+            )}
             <div className="mt-4 h-full w-full">
                 <h1 className="text-2xl font-bold">Detail Produk</h1>
                 <div className="mt-4 grid w-full max-w-[100vw] grid-cols-12 items-start justify-between gap-x-0 gap-y-8 md:gap-24 md:gap-x-12">
@@ -36,6 +85,13 @@ const KatalogDetail = ({ product }: Props) => {
                                     alt="product"
                                     className="bg-cover object-contain"
                                     sizes="(max-width: 640px) 100vw, 640px"
+                                    onClick={() =>
+                                        setState({
+                                            ...state,
+                                            photoIndex: 0,
+                                            isOpen: true,
+                                        })
+                                    }
                                 />
                             </div>
                             {product?.images.length > 1 && (
@@ -55,6 +111,13 @@ const KatalogDetail = ({ product }: Props) => {
                                                 alt="product"
                                                 className="object-cover"
                                                 sizes="(max-width: 640px) 100vw, 640px"
+                                                onClick={() =>
+                                                    setState({
+                                                        ...state,
+                                                        photoIndex: index + 1,
+                                                        isOpen: true,
+                                                    })
+                                                }
                                             />
                                         </div>
                                     ))}

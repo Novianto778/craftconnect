@@ -19,7 +19,7 @@ const KatalogFilter = (props: Props) => {
     }, [filter]);
 
     return (
-        <div className="fixed h-max w-inherit rounded-lg border p-4">
+        <div className="sticky top-20 left-0 h-max min-w-[200px] rounded-lg border bg-white p-4">
             <div className="flex flex-col gap-y-6">
                 <div className="flex flex-col gap-y-2">
                     <h6 className="font-semibold">Tipe</h6>

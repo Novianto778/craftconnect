@@ -14,7 +14,7 @@ const Katalog = ({ products }: Props) => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const matches = useMediaQuery('(min-width: 640px)');
 
-    let filterClasses = 'lg:block lg:basis-1/4 w-filter';
+    let filterClasses = 'lg:block lg:basis-1/4 w-filter z-100 relative';
     if (!matches) {
         filterClasses =
             'absolute right-0 h-full max-h-main bg-white px-4 shadow lg:hidden z-30';
@@ -22,10 +22,11 @@ const Katalog = ({ products }: Props) => {
 
     return (
         <>
-            <div className="container relative mx-auto flex h-full max-h-main gap-x-4 pt-8">
+            <div className="container mx-auto flex h-full gap-x-8 pt-8 w-full">
                 <div
                     className={cn(filterClasses, {
                         hidden: !isFilterOpen,
+                        absolute: isFilterOpen,
                     })}
                 >
                     <KatalogFilter />
@@ -33,7 +34,7 @@ const Katalog = ({ products }: Props) => {
                 <div className="basis-full lg:basis-3/4">
                     <KatalogContent products={products} />
                 </div>
-                <div className="absolute bottom-4 right-4 z-50 lg:hidden">
+                <div className="fixed bottom-4 right-4 z-50 lg:hidden">
                     <Button
                         size="sm"
                         onClick={() => setIsFilterOpen((prev) => !prev)}

@@ -43,10 +43,13 @@ module.exports = {
             },
             minHeight: {
                 main: 'calc(100vh - 60px)',
+                chat: 'calc(100vh - 160px)',
             },
             maxHeight: {
-                main: 'calc(100vh - 60px)',
+                main: 'calc(100vh - 80px)',
+                chat: 'calc(100vh - 160px)',
                 card: 'calc(100% - 8rem)',
+                inherit: 'inherit',
             },
             width: {
                 inherit: 'inherit',
