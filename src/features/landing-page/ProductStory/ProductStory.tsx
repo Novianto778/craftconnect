@@ -1,23 +1,17 @@
 import Story1 from '@/assets/img/story1.png';
 import Story2 from '@/assets/img/story2.png';
 import Story3 from '@/assets/img/story3.png';
-import useMediaQuery from '@/shared/hooks/useMediaQuery';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useLayoutEffect, useState } from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
-import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 type Props = {};
 
 const ProductStory = (props: Props) => {
-    // const match = useMediaQuery('(min-width: 768px)');
-    // console.log(match);
-
     return (
         <div className="product-story bg-[#54463B]">
             <div className="container">
@@ -25,7 +19,7 @@ const ProductStory = (props: Props) => {
                     Cerita Produk
                 </h1>
                 <Swiper
-                    modules={[Autoplay, Navigation]}
+                    modules={[Autoplay]}
                     breakpoints={{
                         320: {
                             slidesPerView: 1,
@@ -34,12 +28,8 @@ const ProductStory = (props: Props) => {
                             slidesPerView: 3,
                         },
                     }}
-                    // autoplay={{
-                    //     delay: 2000,
-                    // }}
                     initialSlide={1}
                     centeredSlides={true}
-                    // loop={!match}
                     className="!flex min-h-screen items-center justify-center"
                 >
                     <SwiperSlide>
@@ -60,11 +50,11 @@ const ProductStory = (props: Props) => {
                             >
                                 <AiFillPlayCircle size={92} />
                             </Link>
-                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
-                                Batik
+                            <span className="absolute top-2 left-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
+                                Kursi
                             </span>
-                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
-                                Jawa
+                            <span className="absolute bottom-2 right-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
+                                Rotan
                             </span>
                         </div>
                     </SwiperSlide>
@@ -86,10 +76,10 @@ const ProductStory = (props: Props) => {
                             >
                                 <AiFillPlayCircle size={92} />
                             </Link>
-                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                            <span className="absolute top-2 left-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
                                 Batik
                             </span>
-                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
+                            <span className="absolute bottom-2 right-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
                                 Jawa
                             </span>
                         </div>
@@ -112,11 +102,11 @@ const ProductStory = (props: Props) => {
                             >
                                 <AiFillPlayCircle size={92} />
                             </Link>
-                            <span className="absolute top-2 left-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
-                                Batik
+                            <span className="absolute top-2 left-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
+                                Meja
                             </span>
-                            <span className="absolute bottom-2 right-2 font-volkhov text-4xl font-semibold tracking-widest text-white">
-                                Jawa
+                            <span className="absolute bottom-2 right-2 font-volkhov text-2xl font-semibold tracking-widest text-white">
+                                Sonokeling
                             </span>
                         </div>
                     </SwiperSlide>

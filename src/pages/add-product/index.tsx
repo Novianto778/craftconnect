@@ -50,7 +50,7 @@ const AddProduct = (props: Props) => {
     const onSubmit = async (data: any) => {
         setLoading(true);
         try {
-            let productData;
+            let productData: Product;
             const images = data.images;
             const imagesUrl: string[] = [];
 
@@ -66,14 +66,15 @@ const AddProduct = (props: Props) => {
                 const imageUrl = await getDownloadURL(storageRef);
                 imagesUrl.push(imageUrl);
             }
+            console.log(data.highlightImage.length);
 
-            if (data.highlightImage) {
+            if (data.highlightImage.length > 0) {
                 const highlightImageRef = ref(
                     storage,
-                    `products/${data.name}/${data.highlightImage.name}`
+                    `products/${data.name}/${data.highlightImage[0].name}`
                 );
 
-                await uploadFile(highlightImageRef, data.highlightImage);
+                await uploadFile(highlightImageRef, data.highlightImage[0]);
                 const highlightImageUrl = await getDownloadURL(
                     highlightImageRef
                 );
@@ -89,6 +90,8 @@ const AddProduct = (props: Props) => {
             } else {
                 productData = {
                     ...data,
+                    highlightImage: '',
+                    highlight: [],
                     images: imagesUrl,
                     userInfo: {
                         ...currentUser,

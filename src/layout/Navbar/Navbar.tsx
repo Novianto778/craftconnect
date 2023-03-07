@@ -23,6 +23,18 @@ const Navbar = (props: Props) => {
     const router = useRouter();
 
     useEffect(() => {
+        const handleWindowResize = () => {
+            if (window.innerWidth > 768) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
+    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsFixed(true);
@@ -46,7 +58,7 @@ const Navbar = (props: Props) => {
     return (
         <>
             <div className="w-full">
-                <section className="relative z-9999">
+                <section className="relative z-500">
                     <nav
                         className={cn(
                             'fixed top-0 flex h-[60px] w-full justify-between',
@@ -84,26 +96,20 @@ const Navbar = (props: Props) => {
                                     <Link href="/chat">
                                         <BsChatQuote size={20} />
                                     </Link>
-                                    <div className="mr-6 hidden items-center md:flex">
-                                        <RiShoppingCartLine size={20} />
-                                        <span className="absolute -mt-5 ml-4 flex">
-                                            <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-pink-400 opacity-75"></span>
-                                            <span className="relative inline-flex h-3 w-3 rounded-full bg-pink-500"></span>
-                                        </span>
-                                    </div>
+
                                     <div
                                         className="relative"
                                         ref={profileImageRef}
                                     >
                                         {currentUser?.avatar ? (
                                             <Image
-                                                className="cursor-pointer"
                                                 src={
                                                     currentUser?.avatar as string
                                                 }
                                                 width={36}
                                                 height={36}
                                                 alt="user profile"
+                                                className="max-h-[36px] max-w-[36px] cursor-pointer rounded-full border border-white"
                                                 onClick={() =>
                                                     setOpenPopover(
                                                         (prev) => !prev
@@ -139,15 +145,6 @@ const Navbar = (props: Props) => {
                                 </div>
                             )}
                         </div>
-                        {currentUser && (
-                            <div className="mr-6 flex items-center md:hidden">
-                                <RiShoppingCartLine size={20} />
-                                <span className="absolute -mt-5 ml-4 flex">
-                                    <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-pink-400 opacity-75"></span>
-                                    <span className="relative inline-flex h-3 w-3 rounded-full bg-pink-500"></span>
-                                </span>
-                            </div>
-                        )}
                         <button
                             className="navbar-burger mr-12 self-center md:hidden"
                             onClick={() => setIsOpen((prev) => !prev)}

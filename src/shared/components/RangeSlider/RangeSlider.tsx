@@ -89,20 +89,6 @@ const RangeSlider = ({
                         wrapperClassName="w-20"
                     />
                 </div>
-                <div className="flex items-center pr-2">
-                    <div className="flex items-center rounded-md">
-                        <span className="p-2 text-sm font-semibold">Max</span>
-                        <Input
-                            onChange={handleMaxInput}
-                            type="number"
-                            value={maxValue}
-                            variant="underline"
-                            sizes="sm"
-                            className="px-0 py-0"
-                            wrapperClassName="w-20"
-                        />
-                    </div>
-                </div>
             </div>
 
             <div className="my-2">
@@ -133,6 +119,20 @@ const RangeSlider = ({
                         value={maxValue}
                         className="range-max pointer-events-none absolute  -top-1 h-1  w-full appearance-none  bg-transparent"
                     />
+                </div>
+                <div className="mt-4 flex items-center pr-2">
+                    <div className="flex items-center rounded-md">
+                        <span className="p-2 text-sm font-semibold">Max</span>
+                        <Input
+                            onChange={handleMaxInput}
+                            type="number"
+                            value={maxValue}
+                            variant="underline"
+                            sizes="sm"
+                            className="px-0 py-0"
+                            wrapperClassName="w-20"
+                        />
+                    </div>
                 </div>
             </div>
         </>

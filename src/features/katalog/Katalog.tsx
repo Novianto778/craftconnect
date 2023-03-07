@@ -14,10 +14,10 @@ const Katalog = ({ products }: Props) => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const matches = useMediaQuery('(min-width: 640px)');
 
-    let filterClasses = 'h-full border-r sm:block sm:basis-1/4';
+    let filterClasses = 'lg:block lg:basis-1/4 w-filter';
     if (!matches) {
         filterClasses =
-            'absolute right-0 h-full max-h-main bg-white px-4 shadow md:hidden z-30';
+            'absolute right-0 h-full max-h-main bg-white px-4 shadow lg:hidden z-30';
     }
 
     return (
@@ -30,10 +30,10 @@ const Katalog = ({ products }: Props) => {
                 >
                     <KatalogFilter />
                 </div>
-                <div className="basis-full sm:basis-3/4">
+                <div className="basis-full lg:basis-3/4">
                     <KatalogContent products={products} />
                 </div>
-                <div className="absolute bottom-4 right-4 z-50 md:hidden">
+                <div className="absolute bottom-4 right-4 z-50 lg:hidden">
                     <Button
                         size="sm"
                         onClick={() => setIsFilterOpen((prev) => !prev)}

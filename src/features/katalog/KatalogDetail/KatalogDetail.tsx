@@ -20,7 +20,7 @@ const KatalogDetail = ({ product }: Props) => {
         handleSelect(product.userInfo);
     };
 
-    console.log(product);
+    console.log(product.highlight);
 
     return (
         <div className="container">
@@ -34,7 +34,7 @@ const KatalogDetail = ({ product }: Props) => {
                                     src={product?.images[0]}
                                     fill
                                     alt="product"
-                                    className="object-cover"
+                                    className="bg-cover object-contain"
                                     sizes="(max-width: 640px) 100vw, 640px"
                                 />
                             </div>
@@ -73,7 +73,10 @@ const KatalogDetail = ({ product }: Props) => {
                             <p className="mt-2 text-xl font-semibold tracking-wider">
                                 {formatCurrency(product?.price)}
                             </p>
-                            <div className="flex items-center justify-between">
+                            <p className="mt-4 text-sm text-gray-500">
+                                {product?.description}
+                            </p>
+                            <div className="mt-2 flex items-center justify-between">
                                 <div className="flex items-center gap-x-2">
                                     <div className="flex h-10 w-10 items-center justify-center rounded-full">
                                         <Image
@@ -94,9 +97,6 @@ const KatalogDetail = ({ product }: Props) => {
                                     Chat
                                 </Button>
                             </div>
-                            <p className="mt-4 text-sm text-gray-500">
-                                {product?.description}
-                            </p>
 
                             <div className="mt-4 flex items-center gap-x-2">
                                 <CheckoutActions product={product} />
@@ -111,7 +111,7 @@ const KatalogDetail = ({ product }: Props) => {
                     </div>
                 </div>
             </div>
-            {product?.highlight && (
+            {product?.highlight?.length! > 0 && (
                 <div className="mt-20">
                     <ProductHighlight
                         highlight={product.highlight}

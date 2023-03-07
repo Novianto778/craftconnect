@@ -23,8 +23,9 @@ const LINKS = [
         link: '/katalog',
     },
     {
-        title: 'About',
-        link: '/about',
+        title: 'Docs',
+        link: 'https://craftconnect-docs.netlify.app',
+        target: '_blank',
     },
     {
         title: 'Contact',
@@ -46,17 +47,43 @@ const NavbarMenu = ({ isOpen, isFixed }: Props) => {
                     'bg-black !text-white': isFixed,
                     'md:bg-transparent': !isFixed,
                     'text-black': !isFixed && router.pathname === '/',
+                    '!text-white': isOpen,
                 }
             )}
         >
-            {LINKS.map((link) => (
-                <LinkItem
-                    key={link.title}
-                    title={link.title}
-                    link={link.link}
-                    isActive={router.pathname === link.link}
-                />
-            ))}
+            {LINKS.map((link) => {
+                if (link.target) {
+                    return (
+                        <li className="nav-item">
+                            <a
+                                className={
+                                    (twMerge(
+                                        'text-white duration-300 hover:text-blue-600'
+                                    ),
+                                    cn({
+                                        'bg-black !text-white':
+                                            isFixed || router.pathname !== '/',
+                                    }))
+                                }
+                                href={link.link}
+                                target={link.target}
+                            >
+                                {link.title}
+                            </a>
+                        </li>
+                    );
+                } else {
+                    return (
+                        <LinkItem
+                            isFixed={isFixed}
+                            key={link.title}
+                            title={link.title}
+                            link={link.link}
+                            isActive={router.pathname === link.link}
+                        />
+                    );
+                }
+            })}
             {currentUser ? (
                 <Button
                     size="sm"
@@ -83,20 +110,23 @@ const LinkItem = ({
     title,
     link,
     isActive,
+    isFixed,
 }: {
+    isFixed: boolean;
     title: string;
     link: string;
     isActive: boolean;
 }) => {
+    const router = useRouter();
     return (
         <li className="nav-item">
             <Link
                 className={
-                    (twMerge(
-                        'text-white duration-300 hover:text-blue-600 md:text-black'
-                    ),
+                    (twMerge('text-white duration-300 hover:text-blue-600'),
                     cn({
                         'text-blue-600': isActive,
+                        'bg-black !text-white':
+                            isFixed || router.pathname !== '/',
                     }))
                 }
                 href={link}

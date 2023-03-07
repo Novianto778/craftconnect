@@ -67,7 +67,13 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <link rel="icon" href="/images/logo.ico" />
             </Head>
-            <Toaster />
+            <Toaster
+                toastOptions={{
+                    style: {
+                        zIndex: 9999,
+                    },
+                }}
+            />
             <div className="h-full font-poppins">
                 <ModalContainer />
                 {!isHideNavbar && !loading && <Navbar />}
